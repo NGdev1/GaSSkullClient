@@ -1,7 +1,7 @@
 <?php
 
 mysqli_init();
-$db = new mysqli("localhost:3306", "root", "root", "auto_service");//"bNDjTuxbXZ6newX6");
+$db = new mysqli("localhost:3306", "root", "root", "auto_service");//"писать нужно по делу");
 
 if($db->connect_errno){
     echo "Не удалось подключиться к MySQL: (" . $db->connect_errno . ")" . $db->connect_error;

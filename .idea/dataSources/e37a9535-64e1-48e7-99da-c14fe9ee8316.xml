@@ -1,92 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL - auto_service@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
-    <schema id="1" name="auto_service">
-      <visible>1</visible>
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="auto_service">
+      <Current>1</Current>
+      <Visible>1</Visible>
     </schema>
-    <schema id="2" name="dailyToDo"/>
-    <schema id="3" name="information_schema"/>
-    <schema id="4" name="mysql"/>
-    <schema id="5" name="performance_schema"/>
-    <schema id="6" name="pro_poisk"/>
-    <table id="7" parent="1" name="service_record"/>
-    <table id="8" parent="1" name="users"/>
-    <table id="9" parent="1" name="admin"/>
-    <column id="10" parent="7" name="user_id">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
+    <schema id="3" parent="1" name="dailyToDo"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="pro_poisk"/>
+    <table id="8" parent="2" name="admin"/>
+    <table id="9" parent="2" name="car_type"/>
+    <table id="10" parent="2" name="price_list"/>
+    <table id="11" parent="2" name="service_record"/>
+    <table id="12" parent="2" name="services"/>
+    <table id="13" parent="2" name="users"/>
+    <column id="14" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="11" parent="7" name="date">
-      <mandatory>1</mandatory>
-      <data-type>date|0</data-type>
+    <column id="15" parent="8" name="login">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="7" name="message">
-      <mandatory>1</mandatory>
-      <data-type>varchar(1000)|0</data-type>
+    <column id="16" parent="8" name="password">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="13" parent="7" name="user_id">
-      <columns>user_id</columns>
-      <desc-columns></desc-columns>
+    <key id="17" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="9" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="20" parent="9" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="10" name="id_car_type">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="10" name="id_services">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="10" name="price">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="10" name="id_car_type">
+      <ColNames>id_car_type</ColNames>
     </index>
-    <foreign-key id="14" parent="7" name="service_record_ibfk_1">
-      <columns>user_id</columns>
-      <ref-key>~.users.PRIMARY</ref-key>
-      <cascade-update-rule>update</cascade-update-rule>
-      <cascade-delete-rule>delete</cascade-delete-rule>
+    <index id="25" parent="10" name="id_usluga">
+      <ColNames>id_services</ColNames>
+    </index>
+    <foreign-key id="26" parent="10" name="price_list_ibfk_1">
+      <ColNames>id_car_type</ColNames>
+      <RefSchemaName>auto_service</RefSchemaName>
+      <RefTableName>car_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
-    <column id="15" parent="8" name="id">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-      <sequence-identity>1</sequence-identity>
+    <foreign-key id="27" parent="10" name="price_list_ibfk_2">
+      <ColNames>id_services</ColNames>
+      <RefSchemaName>auto_service</RefSchemaName>
+      <RefTableName>services</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="28" parent="11" name="user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="8" name="pin">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
+    <column id="29" parent="11" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="8" name="car_type">
-      <mandatory>1</mandatory>
-      <data-type>tinyint(1)|0</data-type>
+    <column id="30" parent="11" name="message">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="8" name="year">
-      <mandatory>1</mandatory>
-      <data-type>year(4)|0</data-type>
+    <index id="31" parent="11" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <foreign-key id="32" parent="11" name="service_record_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>auto_service</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
+    <column id="33" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="19" parent="8" name="device_id">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
+    <column id="34" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="8" name="device_platform">
-      <mandatory>1</mandatory>
-      <data-type>varchar(100)|0</data-type>
-    </column>
-    <column id="21" parent="8" name="device_name">
-      <mandatory>1</mandatory>
-      <data-type>varchar(100)|0</data-type>
-    </column>
-    <column id="22" parent="8" name="phone">
-      <mandatory>1</mandatory>
-      <data-type>varchar(12)|0</data-type>
-    </column>
-    <key id="23" parent="8" name="PRIMARY">
-      <columns>id</columns>
-      <primary>1</primary>
+    <key id="35" parent="12" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <column id="24" parent="9" name="id">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-      <sequence-identity>1</sequence-identity>
+    <column id="36" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="25" parent="9" name="login">
-      <mandatory>1</mandatory>
-      <data-type>varchar(100)|0</data-type>
+    <column id="37" parent="13" name="pin">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="9" name="password">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
+    <column id="38" parent="13" name="device_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <key id="27" parent="9" name="PRIMARY">
-      <columns>id</columns>
-      <primary>1</primary>
+    <column id="39" parent="13" name="device_platform">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="13" name="device_name">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="13" name="phone">
+      <Position>7</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="13" name="id_car_type">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="13" name="image">
+      <Position>8</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="13" name="car_number">
+      <Position>9</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="13" name="name">
+      <Position>10</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="13" name="registration_date">
+      <Position>11</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="13" name="last_activity">
+      <Position>12</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="48" parent="13" name="id_car_type">
+      <ColNames>id_car_type</ColNames>
+    </index>
+    <key id="49" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
+    <foreign-key id="50" parent="13" name="users_ibfk_1">
+      <ColNames>id_car_type</ColNames>
+      <RefSchemaName>auto_service</RefSchemaName>
+      <RefTableName>car_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>update</OnUpdate>
+      <OnDelete>delete</OnDelete>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -1,6 +1,6 @@
 <?php
 
-include "../../temp/functions.php";
+include "../../db/functions.php";
 
 if (isset($_POST['submit'])) {
     if (tryToLogin($_POST['name'], $_POST['pass'])) {

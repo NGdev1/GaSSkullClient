@@ -1,5 +1,5 @@
 <?php
-include "../temp/functions.php";
+include "../db/functions.php";
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../admin/login");

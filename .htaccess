@@ -1,0 +1,15 @@
+#RewriteEngine on
+#
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#
+#RewriteRule .* bootstrap.php [L]
+
+#401  Авторизация не выполнена
+ErrorDocument 401 http:/localhost:8888/gasskull.ru/web/errordocs
+#403  Доступ запрещен
+ErrorDocument 403 http:/localhost:8888/gasskull.ru/web/errordocs
+#404  Страница не найдена
+ErrorDocument 404 http:/localhost:8888/gasskull.ru/web/errordocs
+#500  Внутренняя ошибка сервера
+ErrorDocument 500 http:/localhost:8888/gasskull.ru/web/errordocs

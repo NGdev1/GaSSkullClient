@@ -1,0 +1,12 @@
+[
+   {
+      "type": "empty",
+      "class": "empty"
+   },
+   {
+      "type": "logout",
+      "class": "rightButton red",
+      "text": "Выход",
+      "href": "login/login.php?action=logout"
+   }
+]

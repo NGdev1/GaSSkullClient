@@ -1,0 +1,28 @@
+{
+   "title": "Панель администратора",
+   "url": "/gasskull.ru/web/admin/boards",
+   "leftButton": "empty",
+   "rightButton": "logout",
+   "menu": [
+      {
+         "title": "Редактировать прайс лист",
+         "url": "boards/uslugi",
+         "leftButton": "back",
+         "rightButton": "logout",
+         "menu": [
+            {
+               "title": "Полный прайс лист",
+               "url": "boards/uslugi/pricelist",
+               "leftButton": "back",
+               "rightButton": "logout"
+            },
+            {
+               "title": "Разделы",
+               "url": "boards/uslugi/sections",
+               "leftButton": "back",
+               "rightButton": "logout"
+            }
+         ]
+      }
+   ]
+}

@@ -2,67 +2,109 @@
  * Created by Михаил on 15.03.16.
  */
 
-$(document).ready(function () {
-    var layout = null;
-    var buttons = null;
-    var finder = new Finder();
-    var buttonsContainer = $('#buttonsContainer');
+var layout = null;
+var buttons = null;
+var finder = new Finder();
+var buttonsContainer;
+var leftButtonContainer;
+var rightButtonContainer;
+var contentContainer;
+var titleContainer;
+var pathContainer;
 
-    init();
-
-    function init() {
-        $.getJSON('layout.json', function (data) {
-            layout = data;
-            $.getJSON('buttons.json', function (data) {
-                buttons = data;
-                reloadInterface();
-            });
+function init() {
+    $.getJSON('layout.json', function (data) {
+        layout = data;
+        finder.setLayout(layout);
+        $.getJSON('buttons.json', function (data) {
+            buttons = data;
+            reloadInterface();
         });
-    }
+    });
+}
 
+function reloadInterface() {
+    buildInterface(finder.getCurrentMenu(), finder.getFoldersArray());
+}
 
-    function reloadInterface() {
-        var menu = finder.getCurrentMenuFromLayout(layout);
+function clearButtonsContainer() {
+    buttonsContainer.html('');
+}
 
-        if (menu == null) clearButtonsContainer();
-        else buildInterface(menu);
-    }
+function buildInterface(menu, path) {
+    var title = titleContainer;
+    title.fadeTo(200, 0.3, function () {
+        title.html(menu.title);
+        title.fadeTo(200, 1);
+    });
 
-    function clearButtonsContainer() {
-        buttonsContainer.hide(200);
-    }
+    pathContainer.html('');
+    var i;
+    var pathItemClass = 'pathItem';
+    for(i = 0; i < path.length; i++){
+        if(i == path.length - 1) pathItemClass += ' bold';
 
-    function buildInterface(menu) {
-        var title = $('#title');
-        title.fadeTo(200, 0.3, function () {
-            title.html(menu.title);
-            title.fadeTo(200, 1);
+        var pathItem = $('<a/>', {
+            'text': path[i],
+            'onclick': 'setDepth(' + i + ')',
+            'class': pathItemClass
         });
 
+        pathContainer.append(pathItem);
+        pathContainer.append('/');
+    }
 
+
+    clearButtonsContainer();
+    if(menu.menu != undefined) {
         buttonsContainer.hide(200);
-        for (var i = 0; i < menu.menu.length; i++) {
+        for (i = 0; i < menu.menu.length; i++) {
             var button = $('<a/>', {
                 'class': 'button-center-oval',
-                'onclick': 'onClick()'
+                'onclick': 'goDeeper(' + i + ')',
+                'text': menu.menu[i].title
             });
-            button.append(menu.menu[i].title);
 
             buttonsContainer.append(button);
         }
         buttonsContainer.show(200);
-
-        $.ajax({
-            url: menu.url,
-            type: "GET"
-        }).done(function (data) {
-            $('#content').html(data);
-        });
     }
 
-    function getButtonWIthType(type, options) {
-        if(type == 'logout'){
 
+    rightButtonContainer.html(getButtonWIthType(menu.rightButton));
+    leftButtonContainer.html(getButtonWIthType(menu.leftButton));
+
+    $.ajax({
+        url: menu.url,
+        type: "GET"
+    }).done(function (data) {
+        contentContainer.html(data);
+    });
+}
+
+function getButtonWIthType(type) {
+    for (var i = 0; i < buttons.length; i++) {
+        if (type == buttons[i].type) {
+            return $('<a/>', {
+                'class': buttons[i].class,
+                'text': buttons[i].text,
+                'onclick': buttons[i].onclick
+            });
         }
     }
+
+    return $('<a/>', {
+        'class': 'empty'
+    })
+}
+
+$(document).ready(function () {
+    init();
+
+    buttonsContainer = $('#buttonsContainer');
+    leftButtonContainer = $('#leftButtonContainer');
+    rightButtonContainer = $('#rightButtonContainer');
+    contentContainer = $('#content');
+    titleContainer = $('#title');
+    pathContainer = $('#pathContainer');
 });

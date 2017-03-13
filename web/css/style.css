@@ -104,7 +104,7 @@ a{
 .title{
     line-height: 43px;
     font-size: 25px;
-    margin-bottom: 10px;
+    margin: 10px 0 10px 0;
 }
 
 .container {
@@ -135,6 +135,7 @@ a{
     border: 0;
     font-size: 18px;
     margin: 0 auto 10px;
+    cursor: pointer;
 }
 
 .button {
@@ -255,10 +256,17 @@ a{
     font-size: 18px;
     font-weight: 300;
     margin: 0;
+    padding: 0;
     color: white;
-    padding: 11px;
     border-radius: 10px;
     border: 1px;
+    width: 75px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    display: inline;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .rightButton{
@@ -266,14 +274,29 @@ a{
     font-size: 18px;
     font-weight: 300;
     margin: 0;
+    padding: 0;
     color: white;
-    padding: 11px;
     border-radius: 10px;
     border: 1px;
+    width: 75px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    display: inline;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.rightButton:hover{
-    background: #aa4f4f;
+.emptyLeft{
+    float: left;
+    width: 75px;
+    height: 43px;
+}
+
+.emptyRight{
+    float: right;
+    width: 75px;
+    height: 43px;
 }
 
 .selected_item{
@@ -317,7 +340,22 @@ a{
 }
 
 .navigation-bar{
-    background: #eee;
+    /*background: #eee;*/
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+.pathItem{
+    color: #446490;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.bold{
+    font-weight: 500;
+}
+
+#pathContainer{
+    margin: 20px 0;
 }

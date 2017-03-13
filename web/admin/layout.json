@@ -1,7 +1,7 @@
 {
    "title": "Панель администратора",
    "url": "/gasskull.ru/web/admin/boards",
-   "leftButton": "empty",
+   "leftButton": "emptyLeft",
    "rightButton": "logout",
    "menu": [
       {

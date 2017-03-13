@@ -1,12 +1,22 @@
 [
    {
-      "type": "empty",
-      "class": "empty"
+      "type": "emptyLeft",
+      "class": "emptyLeft"
+   },
+   {
+      "type": "emptyRight",
+      "class": "emptyRight"
    },
    {
       "type": "logout",
       "class": "rightButton red",
       "text": "Выход",
-      "href": "login/login.php?action=logout"
+      "onclick": "logout()"
+   },
+   {
+      "type": "back",
+      "class": "leftButton blue",
+      "text": "Назад",
+      "onclick": "back()"
    }
 ]

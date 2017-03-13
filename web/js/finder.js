@@ -2,59 +2,67 @@
  * Created by Михаил on 19.03.16.
  */
 
-function Finder() {
-    this.depth = 0;
-    this.folders = [];
+function Finder() { //класc, в котором хранится наша текущая позиция
+    this.depth = 0; //сколько папок мы прошли
+    this.layout = null; //дерево менюшек
+    this.currentLayout = null; //ссылка на узел в котором мы находимся
+    this.folderIndexes = []; //путь до текущей позиции
+    this.folderNames = []; //путь до текущей позиции
 }
 
-Finder.prototype.upFolder = function () {
-    this.depth--;
+Finder.prototype.upFolders = function (count) {
+    if(this.depth - count < 0) return;
 
-    return this.folders[this.depth];
+    this.depth -= count;
+
+    for(var i = 0; i < count; i++) {
+        this.folderNames.pop();
+        this.folderIndexes.pop();
+    }
+
+    this.currentLayout = this.layout;
+    for(var i = 0; i < this.depth; i++){
+        this.currentLayout = this.currentLayout.menu[this.folderIndexes[i]];
+    }
 };
 
-Finder.prototype.addFolder = function (branch) {
+Finder.prototype.addFolder = function (index) {
+    if(this.currentLayout.menu == undefined) return;
+
     this.depth++;
 
-    this.folders[this.depth] = branch;
+    this.currentLayout = this.currentLayout.menu[index];
+    this.folderIndexes.push(index);
+    this.folderNames.push(this.currentLayout.title);
 };
 
 Finder.prototype.getCurrentFolderName = function () {
-    return this.folders[this.depth];
-};
-
-Finder.prototype.getFolderWithIndex = function (index) {
-    return this.folders[index];
+    return this.folderNames[this.depth];
 };
 
 Finder.prototype.getDepth = function () {
     return this.depth;
 };
 
-Finder.prototype.getCurrentMenuFromLayout = function (layout) {
-    if(this.depth == 0) return layout;
+Finder.prototype.setLayout = function (layout) {
+    this.layout = layout;
+    this.currentLayout = layout;
+    this.depth = 0;
+    this.folderIndexes = [];
+    this.folderNames = [];
+    this.folderIndexes.push(0);
+    this.folderNames.push(layout.title);
+};
 
-    var currentMenu = layout;
+Finder.prototype.getCurrentMenu = function (layout) {
+    return this.currentLayout;
+};
 
-    for (var i = 1; i < this.depth; i++) {
-        for (var w = 0; w < currentMenu.menu.length; w++) {
-            if (this.getFolderWithIndex(i) == currentMenu.menu[w].title) {
+Finder.prototype.getFoldersArray = function () {
+    return this.folderNames;
+};
 
-                if (currentMenu.menu[w].menu != undefined) {
-                    currentMenu.menu = currentMenu.menu[w].menu;
-
-                    if (i == this.depth - 1) {
-                        return currentMenu;
-                    }
-
-                    break;
-                } else {
-                    return null;
-                }
-            }
-        }
-    }
-
-    return null;
+Finder.prototype.setDepth = function (depth){
+    this.upFolders(this.depth - depth);
 };
 

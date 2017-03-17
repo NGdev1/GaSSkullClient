@@ -67,10 +67,10 @@ class PriceListDaoImpl implements PriceListDao
     }
 
     /**
-     * @param Int $id
+     * @param int $id
      * @return PriceListItem
      */
-    function findById(Int $id)
+    function findById($id)
     {
         $conn = DbWrapper::getConnection();
         $stmt = $conn->prepare("SELECT * FROM price_list WHERE id=? LIMIT 1;");
@@ -99,7 +99,7 @@ class PriceListDaoImpl implements PriceListDao
         $stmt->execute($parameters);
     }
 
-    function deleteWithId(Int $id)
+    function deleteWithId($id)
     {
         $conn = DbWrapper::getConnection();
         $stmt = $conn->prepare("DELETE FROM price_list WHERE id=?;");
@@ -123,7 +123,7 @@ class PriceListDaoImpl implements PriceListDao
         return $this->getItemsFromResultSet($resultSet);
     }
 
-    function getArrayBySearch(String $q)
+    function getArrayBySearch($q)
     {
         $sql = "SELECT * FROM car_type WHERE name LIKE '%" . $q . "%';";
         $conn = DbWrapper::getConnection();

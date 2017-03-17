@@ -61,7 +61,7 @@ class WorkDaoImpl implements WorkDao
     }
 
 
-    function getById(Int $id)
+    function getById($id)
     {
         $conn = DbWrapper::getConnection();
         $stmt = $conn->prepare("SELECT * FROM price_list_works WHERE id=? LIMIT 1;");
@@ -85,7 +85,7 @@ class WorkDaoImpl implements WorkDao
         return $this->getItemsFromResultSet($resultSet);
     }
 
-    function deleteWithId(Int $id)
+    function deleteWithId($id)
     {
         $sql = 'DELETE FROM price_list_works WHERE id=?;';
         $parameters = array(
@@ -108,7 +108,7 @@ class WorkDaoImpl implements WorkDao
         $stmt->execute($parameters);
     }
 
-    function getArrayBySearch(String $q)
+    function getArrayBySearch($q)
     {
         $sql = "SELECT * FROM price_list_works WHERE name LIKE '%" . $q . "%';";
         $conn = DbWrapper::getConnection();

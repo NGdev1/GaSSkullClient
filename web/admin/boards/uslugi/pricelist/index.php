@@ -9,7 +9,7 @@ use Factory\Factory;
 
 require_once "../../../../../bootstrap.php";
 
-\Utils\Utils::enableLogging();
+//\Utils\Utils::enableLogging();
 
 $priceListDao = Factory::getPriceListDao();
 $carTypeDao = Factory::getCarTypeDao();
@@ -47,7 +47,7 @@ $detailDao = Factory::getDetailDao();
         $sectionName = $sectionDao->getById($item->getIdSection())->getName();
         $detailName = $detailDao->getDetailById($item->getIdDetail())->getName();
 
-        echo <<< HERE
+        echo <<< HTML
             <tr>
                 <td>{$item->getId()}</td>
                 <td>{$sectionName}</td>
@@ -56,7 +56,7 @@ $detailDao = Factory::getDetailDao();
                 <td>{$workName}</td>
                 <td>{$item->getPrice()}</td>
             </tr>
-HERE;
+HTML;
     }
     ?>
 

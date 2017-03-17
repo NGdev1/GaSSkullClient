@@ -62,7 +62,7 @@ class CarTypeDaoImpl implements CarTypeDao
         $stmt->execute($parameters);
     }
 
-    function getCarTypeById(Int $id)
+    function getCarTypeById($id)
     {
         $sql = 'SELECT * FROM car_type WHERE id=? LIMIT 1;';
         $parameters = array(
@@ -76,7 +76,7 @@ class CarTypeDaoImpl implements CarTypeDao
         return $this->getItemFromResultSet($resultSet);
     }
 
-    function deleteCarTypeWithId(Int $id)
+    function deleteCarTypeWithId($id)
     {
         $sql = 'DELETE FROM car_type WHERE id=?;';
         $parameters = array(
@@ -113,7 +113,7 @@ class CarTypeDaoImpl implements CarTypeDao
         return $this->getItemsFromResultSet($resultSet);
     }
 
-    function getArrayBySearch(String $q)
+    function getArrayBySearch($q)
     {
         $sql = "SELECT * FROM car_type WHERE name LIKE '%" . $q . "%';";
         $conn = DbWrapper::getConnection();

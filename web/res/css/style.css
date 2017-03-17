@@ -1,11 +1,97 @@
 @font-face {
     font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextLTPro-Regular.otf");
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Thin.otf");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Thin.otf");
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Light.otf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-LightItalic.otf");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Medium.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-MediumItalic.otf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Regular.otf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Demi.otf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-DemiItalic.otf");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Bold.otf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-BoldItalic.otf");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Heavy.otf");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-HeavyItalic.otf");
+    font-weight: 800;
+    font-style: italic;
 }
 
 body {
     font-weight: 300;
-    font-family:  "Open Sans", "Helvetica Neue", "Avenir Next", Helvetica, Arial, sans-serif;
+    font-family:  "Avenir Next", sans-serif;
     /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-size: 15px;
     line-height: 1.4;
@@ -339,7 +425,7 @@ a{
 }
 
 .bold{
-    font-weight: 500;
+    font-weight: 400;
 }
 
 #pathContainer{

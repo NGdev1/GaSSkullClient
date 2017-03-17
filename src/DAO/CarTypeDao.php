@@ -14,10 +14,10 @@ use Models\CarType;
 interface CarTypeDao
 {
     function save(CarType $carType);
-    function getCarTypeById(Int $id);
+    function getCarTypeById($id);
     function getAll();
-    function deleteCarTypeWithId(Int $id);
+    function deleteCarTypeWithId($id);
     function updateCarType(CarType $carType);
 
-    function getArrayBySearch(String $q);
+    function getArrayBySearch($q);
 }

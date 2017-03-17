@@ -13,10 +13,10 @@ use Models\PriceList\Work;
 interface WorkDao
 {
     function save(Work $work);
-    function getById(Int $id);
+    function getById($id);
     function getAll();
-    function deleteWithId(Int $id);
+    function deleteWithId($id);
     function update(Work $work);
 
-    function getArrayBySearch(String $q);
+    function getArrayBySearch($q);
 }

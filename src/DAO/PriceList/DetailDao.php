@@ -13,10 +13,10 @@ use Models\PriceList\Detail;
 interface DetailDao
 {
     function save(Detail $detail);
-    function getDetailById(Int $id);
+    function getDetailById($id);
     function getAll();
-    function deleteDetailWithId(Int $id);
+    function deleteDetailWithId($id);
     function updateDetail(Detail $detail);
 
-    function getArrayBySearch(String $q);
+    function getArrayBySearch($q);
 }

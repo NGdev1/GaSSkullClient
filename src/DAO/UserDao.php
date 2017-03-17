@@ -13,13 +13,13 @@ use DAO\Models\User;
 interface UserDao
 {
     function save(User $user);
-    function findById(Int $id);
-    function findByName(String $name);
+    function findById($id);
+    function findByName($name);
     function update(User $user);
-    function deleteWithId(Int $id);
-    function deleteWithDeviceId(Int $deviceId);
-    function selectUser($name, $carNimber, $pin);
+    function deleteWithId($id);
+    function deleteWithDeviceId($deviceId);
+    function selectUser($name, $carNumber, $pin);
     function getAllUsers();
 
-    function getArrayBySearch(String $q);
+    function getArrayBySearch($q);
 }

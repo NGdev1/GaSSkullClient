@@ -93,7 +93,7 @@ class UserDaoImpl implements UserDao
         $stmt->execute($parameters);
     }
 
-    public function findById(Int $id)
+    public function findById($id)
     {
         $sql = "SELECT * FROM users WHERE id=?;";
         $parameters = array($id);
@@ -106,7 +106,7 @@ class UserDaoImpl implements UserDao
         return $this->getUserFromResultSet($resultSet);
     }
 
-    public function findByName(String $name)
+    public function findByName($name)
     {
         $sql = "SELECT * FROM users WHERE name=? LIMIT 1";
         $conn = DbWrapper::getConnection();
@@ -151,7 +151,7 @@ class UserDaoImpl implements UserDao
         $statement->execute($parameters);
     }
 
-    public function deleteWithId(Int $id)
+    public function deleteWithId($id)
     {
         $sql = "DELETE FROM users WHERE id=?;";
         $parameters = array($id);
@@ -161,7 +161,7 @@ class UserDaoImpl implements UserDao
         $stmt->execute($parameters);
     }
 
-    public function deleteWithDeviceId(Int $deviceId)
+    public function deleteWithDeviceId($deviceId)
     {
         $sql = "DELETE FROM users WHERE device_id=?;";
         $parameters = array($deviceId);
@@ -187,7 +187,7 @@ name = ? AND car_number = ? AND pin = ?;");
         return $this->getUserFromResultSet($resultSet);
     }
 
-    function getArrayBySearch(String $q)
+    function getArrayBySearch($q)
     {
         $sql = "SELECT * FROM users WHERE name LIKE '%" . $q . "%' OR car_number LIKE '%" . $q . "%';";
         $conn = DbWrapper::getConnection();

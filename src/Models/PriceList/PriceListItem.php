@@ -28,6 +28,9 @@ class PriceListItem
         $this->idDetail = $idDetail;
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
@@ -38,6 +41,9 @@ class PriceListItem
         $this->id = $id;
     }
 
+    /**
+     * @return string
+     */
     public function getPrice()
     {
         return $this->price;
@@ -48,6 +54,9 @@ class PriceListItem
         $this->price = $price;
     }
 
+    /**
+     * @return int
+     */
     public function getIdCarType()
     {
         return $this->idCarType;
@@ -58,6 +67,9 @@ class PriceListItem
         $this->idCarType = $idCarType;
     }
 
+    /**
+     * @return int
+     */
     public function getIdSection()
     {
         return $this->idSection;
@@ -68,6 +80,9 @@ class PriceListItem
         $this->idSection = $idSection;
     }
 
+    /**
+     * @return int
+     */
     public function getIdWork()
     {
         return $this->idWork;
@@ -78,6 +93,9 @@ class PriceListItem
         $this->idWork = $idWork;
     }
 
+    /**
+     * @return int
+     */
     public function getIdDetail()
     {
         return $this->idDetail;

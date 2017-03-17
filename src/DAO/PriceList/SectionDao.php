@@ -13,10 +13,10 @@ use Models\PriceList\Section;
 interface SectionDao
 {
     function save(Section $section);
-    function getById(Int $id);
+    function getById($id);
     function getAll();
-    function deleteWithId(Int $id);
+    function deleteWithId($id);
     function update(Section $section);
 
-    function getArrayBySearch(String $q);
+    function getArrayBySearch($q);
 }

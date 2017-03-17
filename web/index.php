@@ -15,6 +15,7 @@
     <div class="center-content">
         <div class="title center">Сайт автосервиса GaSSkull</div>
         <div class="text center">Мы делаем упор на качество</div>
+        <div>HELLO!!!</div>
 
         <div class="center">
             <a class="button" href="admin">Admin</a>

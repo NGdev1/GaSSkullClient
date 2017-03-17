@@ -51,9 +51,8 @@ class WorkDaoImpl implements WorkDao
 
     function save(Work $work)
     {
-        $sql = 'INSERT INTO price_list_works (id, name) VALUES (?,?);';
+        $sql = 'INSERT INTO price_list_works (name) VALUE (?);';
         $parameters = array(
-            $work->getId(),
             $work->getName()
         );
         $conn = DbWrapper::getConnection();
@@ -88,7 +87,7 @@ class WorkDaoImpl implements WorkDao
 
     function deleteWithId(Int $id)
     {
-        $sql = 'DELETE * FROM price_list_works WHERE id=?;';
+        $sql = 'DELETE FROM price_list_works WHERE id=?;';
         $parameters = array(
             $id
         );

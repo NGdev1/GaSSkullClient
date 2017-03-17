@@ -10,9 +10,9 @@ if (!empty($_SESSION["username"])) {
 <head>
     <title>Панель администратора</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="../../css/style.css" rel="stylesheet" media="screen">
-    <link href="../../css/singin.css" rel="stylesheet" media="screen">
-    <script src="../../js/jquery.min.js"></script>
+    <link href="../../res/css/style.css" rel="stylesheet" media="screen">
+    <link href="../../res/css/singin.css" rel="stylesheet" media="screen">
+    <script src="../../res/js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>

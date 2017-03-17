@@ -87,7 +87,7 @@ class DetailDaoImpl implements DetailDao
 
     function deleteDetailWithId(Int $id)
     {
-        $sql = 'DELETE * FROM price_list_details WHERE id=?;';
+        $sql = 'DELETE FROM price_list_details WHERE id=?;';
         $parameters = array(
             $id
         );

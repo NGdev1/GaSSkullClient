@@ -1,21 +1,17 @@
 [
    {
-      "type": "emptyLeft",
-      "class": "emptyLeft"
-   },
-   {
-      "type": "emptyRight",
-      "class": "emptyRight"
+      "type": "empty",
+      "class": "empty"
    },
    {
       "type": "logout",
-      "class": "rightButton red",
+      "class": "navigationBarButton red",
       "text": "Выход",
       "onclick": "logout()"
    },
    {
       "type": "back",
-      "class": "leftButton blue",
+      "class": "navigationBarButton blue",
       "text": "Назад",
       "onclick": "back()"
    }

@@ -3,10 +3,10 @@
 <head>
     <title>GaSSkull</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link href="web/css/style.css" rel="stylesheet" media="screen">
+    <link href="res/css/style.css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="web/js/jquery.min.js"></script>
+    <script src="res/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <div class="text center">Мы делаем упор на качество</div>
 
         <div class="center">
-            <a class="button" href="web/admin">Admin</a>
+            <a class="button" href="admin">Admin</a>
         </div>
     </div>
 </div>

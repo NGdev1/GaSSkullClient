@@ -18,17 +18,13 @@ function init() {
         finder.setLayout(layout);
         $.getJSON('buttons.json', function (data) {
             buttons = data;
-            reloadInterface();
+            reload();
         });
     });
 }
 
-function reloadInterface() {
+function reload() {
     buildInterface(finder.getCurrentMenu(), finder.getFoldersArray());
-}
-
-function clearButtonsContainer() {
-    buttonsContainer.html('');
 }
 
 function buildInterface(menu, path) {
@@ -41,8 +37,8 @@ function buildInterface(menu, path) {
     pathContainer.html('');
     var i;
     var pathItemClass = 'pathItem';
-    for(i = 0; i < path.length; i++){
-        if(i == path.length - 1) pathItemClass += ' bold';
+    for (i = 0; i < path.length; i++) {
+        if (i == path.length - 1) pathItemClass += ' bold';
 
         var pathItem = $('<a/>', {
             'text': path[i],
@@ -55,9 +51,9 @@ function buildInterface(menu, path) {
     }
 
 
-    clearButtonsContainer();
-    if(menu.menu != undefined) {
-        buttonsContainer.hide(200);
+    buttonsContainer.html('');
+    if (menu.menu != undefined) {
+        buttonsContainer.hide();
         for (i = 0; i < menu.menu.length; i++) {
             var button = $('<a/>', {
                 'class': 'button-center-oval',
@@ -67,19 +63,24 @@ function buildInterface(menu, path) {
 
             buttonsContainer.append(button);
         }
+        //buttonsContainer.show();
         buttonsContainer.show(200);
+        //buttonsContainer.slideDown(200);
     }
 
 
-    rightButtonContainer.html(getButtonWIthType(menu.rightButton));
-    leftButtonContainer.html(getButtonWIthType(menu.leftButton));
+    rightButtonContainer.html(getButtonWIthType(menu.rightButton).addClass('right'));
+    leftButtonContainer.html(getButtonWIthType(menu.leftButton).addClass('left'));
 
-    $.ajax({
-        url: menu.url,
-        type: "GET"
-    }).done(function (data) {
-        contentContainer.html(data);
-    });
+    contentContainer.html('');
+    if (menu.url != undefined) {
+        $.ajax({
+            url: menu.url,
+            type: "GET"
+        }).done(function (data) {
+            contentContainer.html(data);
+        });
+    }
 }
 
 function getButtonWIthType(type) {

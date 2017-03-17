@@ -102,7 +102,7 @@ class PriceListDaoImpl implements PriceListDao
     function deleteWithId(Int $id)
     {
         $conn = DbWrapper::getConnection();
-        $stmt = $conn->prepare("DELETE * FROM price_list WHERE id=?;");
+        $stmt = $conn->prepare("DELETE FROM price_list WHERE id=?;");
 
         $parameters = array(
             $id

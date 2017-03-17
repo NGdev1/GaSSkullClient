@@ -19,7 +19,7 @@ class DbWrapper{
 
     private static function getPdo()
     {
-        $host = "localhost:3306";
+        $host = "gasskull.ru:3306";
         $db = "auto_service";
         $charset = "utf8";
         $user = "root";

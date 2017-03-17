@@ -7,6 +7,8 @@
  * в автошколе
  */
 
+require_once '../../../bootstrap.php';
+
 use DAO\Models\User;
 use DAO\UserDaoImpl;
 use Utils\FormDataCheck;

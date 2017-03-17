@@ -21,7 +21,7 @@ Finder.prototype.upFolders = function (count) {
     }
 
     this.currentLayout = this.layout;
-    for(var i = 0; i < this.depth; i++){
+    for(var i = 1; i <= this.depth; i++){
         this.currentLayout = this.currentLayout.menu[this.folderIndexes[i]];
     }
 };

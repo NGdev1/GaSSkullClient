@@ -51,9 +51,8 @@ class SectionDaoImpl implements SectionDao
 
     function save(Section $section)
     {
-        $sql = 'INSERT INTO price_list_sections (id, name) VALUES (?,?);';
+        $sql = 'INSERT INTO price_list_sections (name) VALUES (?);';
         $parameters = array(
-            $section->getId(),
             $section->getName()
         );
         $conn = DbWrapper::getConnection();
@@ -90,7 +89,7 @@ class SectionDaoImpl implements SectionDao
 
     function deleteWithId(Int $id)
     {
-        $sql = 'DELETE * FROM price_list_sections WHERE id=?;';
+        $sql = 'DELETE FROM price_list_sections WHERE id=?;';
         $parameters = array(
             $id
         );

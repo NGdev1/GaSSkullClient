@@ -37,13 +37,13 @@ CREATE TABLE `price_list` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 INSERT INTO `price_list` (`id`, `id_car_type`, `id_detail`, `id_section`, `id_work`, `price`) VALUES
-  (1, 2, 1, 0, 1, '400 р.'),
-  (2, 1, 1, 0, 1, '400 р.'),
-  (3, 3, 1, 0, 1, '400 р.'),
+  (1, 2, 1, 1, 1, '400 р.'),
+  (2, 1, 1, 1, 1, '400 р.'),
+  (3, 3, 1, 1, 1, '400 р.'),
   (4, 4, 3, 1, 1, '300 р.'),
-  (5, 5, 2, 0, 1, '300 р.'),
-  (6, 6, 2, 0, 1, '300 - 750 р.'),
-  (7, 7, 1, 0, 1, '400 - 750 р.');
+  (5, 5, 2, 1, 1, '300 р.'),
+  (6, 6, 2, 1, 1, '300 - 750 р.'),
+  (7, 7, 1, 1, 1, '400 - 750 р.');
 
 CREATE TABLE `price_list_details` (
   `id` int(11) NOT NULL,
@@ -59,11 +59,11 @@ INSERT INTO `price_list_details` (`id`, `name`) VALUES
 CREATE TABLE `price_list_sections` (
   `id` int(11) NOT NULL,
   `name` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `price_list_sections` (`id`, `name`) VALUES
-  (0, 'Трансмиссия'),
-  (1, 'Ходовая');
+  (1, 'Трансмиссия'),
+  (2, 'Ходовая');
 
 CREATE TABLE `price_list_works` (
   `id` int(11) NOT NULL,
@@ -101,18 +101,18 @@ INSERT INTO `users` (`id`, `pin`, `id_car_type`, `device_id`, `device_platform`,
   (64, 11369, 1, 4254345, 'Android 5.3', 'Samsung Galaxy S3', '+73464735967', 'NULL', 'м345ун116', 'Иван', '2017-02-08', '2017-02-08 06:01:29');
 
 
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `car_type`
-  ADD PRIMARY KEY (`id`);
-
 ALTER TABLE `price_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_car_type` (`id_car_type`),
   ADD KEY `id_usluga` (`id_detail`),
   ADD KEY `id_section` (`id_section`),
   ADD KEY `id_work` (`id_work`);
+
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `car_type`
+  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `price_list_details`
   ADD PRIMARY KEY (`id`);
@@ -143,6 +143,8 @@ ALTER TABLE `price_list_works`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=65;
+ALTER TABLE price_list_sections
+    MODIFY id int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 
 
 ALTER TABLE `price_list`

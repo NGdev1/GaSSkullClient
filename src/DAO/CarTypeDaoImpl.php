@@ -78,7 +78,7 @@ class CarTypeDaoImpl implements CarTypeDao
 
     function deleteCarTypeWithId(Int $id)
     {
-        $sql = 'DELETE * FROM car_type WHERE id=?;';
+        $sql = 'DELETE FROM car_type WHERE id=?;';
         $parameters = array(
             $id
         );

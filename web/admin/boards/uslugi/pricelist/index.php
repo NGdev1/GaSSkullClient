@@ -71,7 +71,7 @@ HERE;
     var details = '{<?php echo implode(',', $detailDao->getAll());?>}';
 
     $('#price_list').Tabledit({
-        url: '/gasskull.ru/web/api/uslugi/',
+        url: 'http:/gasskull.ru/api/pricelistedit/',
         inputClass: 'input_green',
         buttons: {
             edit: {

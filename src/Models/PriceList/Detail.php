@@ -12,17 +12,20 @@ namespace Models\PriceList;
 class Detail
 {
     private $id;
+    private $idSection;
     private $name;
 
     /**
      * CarType constructor.
      * @param $id
+     * @param $idSection
      * @param $name
      */
-    public function __construct($id, $name)
+    public function __construct($id, $idSection, $name)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->idSection = $idSection;
     }
 
     /**
@@ -39,6 +42,22 @@ class Detail
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdSection()
+    {
+        return $this->idSection;
+    }
+
+    /**
+     * @param mixed $idSection
+     */
+    public function setIdSection($idSection)
+    {
+        $this->idSection = $idSection;
     }
 
     /**

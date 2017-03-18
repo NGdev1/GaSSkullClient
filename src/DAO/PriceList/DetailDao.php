@@ -18,5 +18,7 @@ interface DetailDao
     function deleteDetailWithId($id);
     function updateDetail(Detail $detail);
 
+    function getDetailsFromSection($sectionId);
+
     function getArrayBySearch($q);
 }

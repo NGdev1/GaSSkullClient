@@ -43,6 +43,7 @@ class DetailDaoImpl implements DetailDao
     {
         $detail = new Detail(
             $resultSet['id'],
+            $resultSet['id_section'],
             $resultSet['name']
         );
 
@@ -51,10 +52,10 @@ class DetailDaoImpl implements DetailDao
 
     function save(Detail $detail)
     {
-        $sql = 'INSERT INTO price_list_details (id, name) VALUES (?,?);';
+        $sql = 'INSERT INTO price_list_details (name, id_section) VALUES (?,?);';
         $parameters = array(
-            $detail->getId(),
-            $detail->getName()
+            $detail->getName(),
+            $detail->getIdSection()
         );
         $conn = DbWrapper::getConnection();
         $stmt = $conn->prepare($sql);
@@ -117,5 +118,10 @@ class DetailDaoImpl implements DetailDao
 
         $result = $statement->fetchAll();
         return $this->getItemsFromResultSet($result);
+    }
+
+    function getDetailsFromSection($sectionId)
+    {
+        // TODO: Implement getDetailsFromSection() method.
     }
 }

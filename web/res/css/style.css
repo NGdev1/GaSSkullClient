@@ -1,98 +1,85 @@
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Thin.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-UltraLight.otf");
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-UltraLightItalic.otf");
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-Thin.otf");
     font-weight: 200;
     font-style: normal;
 }
-
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Thin.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-ThinItalic.otf");
     font-weight: 200;
     font-style: italic;
 }
 
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Light.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-Light.otf");
     font-weight: 300;
     font-style: normal;
 }
-
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-LightItalic.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-LightItalic.otf");
     font-weight: 300;
     font-style: italic;
 }
 
+
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Medium.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-Roman.otf");
     font-weight: 400;
     font-style: normal;
 }
-
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-MediumItalic.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-Italic.otf");
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Regular.otf");
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-Medium.otf");
     font-weight: 500;
     font-style: normal;
 }
-
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Demi.otf");
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-DemiItalic.otf");
-    font-weight: 600;
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-MediumItaicl.otf");
+    font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Bold.otf");
-    font-weight: 700;
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/Helvetica Neue Condensed Bold.ttf");
+    font-weight: 600;
     font-style: normal;
 }
-
 @font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-BoldItalic.otf");
-    font-weight: 700;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-Heavy.otf");
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Avenir Next";
-    src: url("../fonts/avenir-next-lt-pro/AvenirNextCyr-HeavyItalic.otf");
-    font-weight: 800;
+    font-family: "Helvetica Neue";
+    src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-BoldItalic.otf");
+    font-weight: 600;
     font-style: italic;
 }
 
 body {
     font-weight: 300;
-    font-family:  "Avenir Next", sans-serif;
-    /*font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 15px;
     line-height: 1.4;
     /*background: url("../images/Logo/GaSSkull autoservice v1.svg") no-repeat 0 0 fixed;*/
@@ -360,7 +347,7 @@ a{
     width: 75px;
     height: 43px;
     text-align: center;
-    line-height: 43px;
+    line-height: 45px;
     display: inline;
     overflow: hidden;
     cursor: pointer;
@@ -425,7 +412,7 @@ a{
 }
 
 .bold{
-    font-weight: 400;
+    font-weight: 500;
 }
 
 #pathContainer{

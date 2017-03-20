@@ -44,7 +44,7 @@ HTML;
 
 <script type="text/javascript">
     $('#car_types_table').Tabledit({
-        url: 'http:/gasskull.ru/api/pricelistedit/CarTypesEdit.php',
+        url: 'http://gasskull.ru/api/pricelistedit/CarTypesEdit.php',
         inputClass: 'input_green',
         buttons: {
             edit: {

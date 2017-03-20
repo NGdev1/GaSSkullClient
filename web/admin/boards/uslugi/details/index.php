@@ -42,7 +42,7 @@ HTML;
 
 <script type="text/javascript">
     $('#sections_table').Tabledit({
-        url: 'http:/gasskull.ru/api/pricelistedit/SectionsEdit.php',
+        url: 'http://gasskull.ru/api/pricelistedit/SectionsEdit.php',
         inputClass: 'input_green',
         buttons: {
             edit: {

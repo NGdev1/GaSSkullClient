@@ -39,7 +39,7 @@ $daoCarTypes = Factory::getCarTypeDao();
         if(!val) return;
 
         $.ajax({
-            url: 'http:/gasskull.ru/api/pricelistedit/SectionsEdit.php',
+            url: 'http://gasskull.ru/api/pricelistedit/SectionsEdit.php',
             type: 'POST',
             data:{
                 'action': 'add',

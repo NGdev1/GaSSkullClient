@@ -21,6 +21,7 @@
     <script src="../res/js/finder.js"></script>
     <script src="../res/js/buttonsDistributor.js"></script>
     <script src="../res/js/jquery.tabledit.js"></script>
+    <script src="../res/js/jquery.tablefilter.js"></script>
 </head>
 
 <body>

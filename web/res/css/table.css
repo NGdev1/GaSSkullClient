@@ -76,6 +76,7 @@ th, td {
 
 th{
     border-bottom: 2px;
+    font-weight: 500;
 }
 
 .active{

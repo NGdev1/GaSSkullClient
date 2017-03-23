@@ -45,7 +45,15 @@
                "title": "Детали",
                "leftButton": "back",
                "rightButton": "logout",
-               "url": "boards/uslugi/details"
+               "url": "boards/uslugi/details",
+               "menu": [
+                  {
+                     "title": "Добавить деталь",
+                     "leftButton": "back",
+                     "rightButton": "logout",
+                     "url": "boards/uslugi/details/add"
+                  }
+               ]
             },
             {
                "title": "Работы",

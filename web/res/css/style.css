@@ -214,6 +214,9 @@ a{
 
 .button-center-oval:hover{
     background-color: #137b72;
+
+    left: 1px;
+    top: 1px;
 }
 
 .button {

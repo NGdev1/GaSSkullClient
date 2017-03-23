@@ -11,6 +11,7 @@ var rightButtonContainer;
 var contentContainer;
 var titleContainer;
 var pathContainer;
+var lastLoadedUrl;
 
 function init() {
     $.getJSON('layout.json', function (data) {
@@ -72,10 +73,15 @@ function buildInterface(menu, path) {
     rightButtonContainer.html(getButtonWIthType(menu.rightButton).addClass('right'));
     leftButtonContainer.html(getButtonWIthType(menu.leftButton).addClass('left'));
 
+    loadContent(menu.url);
+}
+
+function loadContent(url) {
     contentContainer.html('');
-    if (menu.url != undefined) {
+    lastLoadedUrl = url;
+    if (url != undefined) {
         $.ajax({
-            url: menu.url,
+            url: url,
             type: "GET"
         }).done(function (data) {
             contentContainer.html(data);

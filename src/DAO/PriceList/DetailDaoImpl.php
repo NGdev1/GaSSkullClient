@@ -75,6 +75,9 @@ class DetailDaoImpl implements DetailDao
         return $this->getItemFromResultSet($resultSet);
     }
 
+    /**
+     * @return Detail[]
+     */
     function getAll()
     {
         $sql = 'SELECT * FROM price_list_details;';
@@ -99,9 +102,10 @@ class DetailDaoImpl implements DetailDao
 
     function updateDetail(Detail $detail)
     {
-        $sql = 'UPDATE price_list_details SET name=? WHERE id=?;';
+        $sql = 'UPDATE price_list_details SET name=?, id_section=? WHERE id=?;';
         $parameters = array(
             $detail->getName(),
+            $detail->getIdSection(),
             $detail->getId()
         );
         $conn = DbWrapper::getConnection();
@@ -122,6 +126,15 @@ class DetailDaoImpl implements DetailDao
 
     function getDetailsFromSection($sectionId)
     {
-        // TODO: Implement getDetailsFromSection() method.
+        $sql = 'SELECT * FROM price_list_details WHERE id_section=?;';
+        $conn = DbWrapper::getConnection();
+        $stmt = $conn->prepare($sql);
+        $parameters = array(
+            $sectionId
+        );
+        $stmt->execute($parameters);
+
+        $resultSet = $stmt->fetchAll();
+        return $this->getItemsFromResultSet($resultSet);
     }
 }

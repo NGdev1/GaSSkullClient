@@ -81,6 +81,3 @@ if ($action == 'edit') {
 } else {
     showResult('error', ['unknown action']);
 }
-
-//{"id":"1","CarTypeName":"dog","action":"edit"}
-//{"id":"10","action":"delete"}

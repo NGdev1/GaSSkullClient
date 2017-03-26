@@ -55,9 +55,12 @@
     border-color: #9c210c;
 }
 
+#table-container{
+    overflow: scroll;
+}
+
 table {
     width: 100%;
-    overflow: scroll;
     font-size: 16px;
 }
 

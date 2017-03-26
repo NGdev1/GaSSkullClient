@@ -6,11 +6,13 @@
  * Time: 8:45
  */
 
-//Car Types Edit
+//Detail Edit
 require_once "../../../bootstrap.php";
 
 use Factory\Factory;
 use Models\PriceList\Detail;
+
+//\Utils\Utils::enableLogging();
 
 $detailDao = Factory::getDetailDao();
 
@@ -86,6 +88,3 @@ if ($action == 'edit') {
 
     showResult('ok', []);
 }
-
-//{"id":"1","CarTypeName":"dog","action":"edit"}
-//{"id":"10","action":"delete"}

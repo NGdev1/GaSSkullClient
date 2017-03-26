@@ -14,31 +14,33 @@ use Factory\Factory;
 $daoSections = Factory::getSectionDao();
 ?>
 
-<table id="sections_table">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Раздел</th>
-    </tr>
-    </thead>
+<div id="table-container">
+    <table id="sections_table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Раздел</th>
+        </tr>
+        </thead>
 
-    <tbody>
+        <tbody>
 
-    <?php
+        <?php
 
-    foreach ($daoSections->getAll() as $item) {
+        foreach ($daoSections->getAll() as $item) {
 
-        echo <<<HTML
+            echo <<<HTML
 <tr>
 <td>{$item->getId()}</td>
 <td>{$item->getName()}</td>
 </tr>
 HTML;
 
-    }
-    ?>
-    </tbody>
-</table>
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
 
 <div style="margin: 30px"></div>
 

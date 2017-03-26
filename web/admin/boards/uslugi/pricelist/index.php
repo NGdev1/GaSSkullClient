@@ -19,35 +19,69 @@ $detailDao = Factory::getDetailDao();
 
 ?>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var sections = JSON.parse('{<?php echo implode(',', $sectionDao->getAll());?>}');
+        var sectionSelect = $('#sectionSelect');
+        var key;
+
+        for (key in sections) {
+            if (sections.hasOwnProperty(key)) {
+                var newOption = $('<option/>', {
+                    text: sections[key],
+                    'value': key
+                });
+
+                sectionSelect.append(newOption);
+            }
+        }
+
+        sectionSelect.change(function () {
+            var selectedSection = sectionSelect.find('option:selected');
+            var filter = '';
+            if (selectedSection.val() != -1) {
+                filter = selectedSection.text();
+            }
+
+            filterTable($('#price_list').find('tbody'), filter, 'tabledit-span', 'text-muted');
+        })
+    })
+</script>
+
+<div class="center bold text">Раздел:</div>
+<select id="sectionSelect" style="width: 50%;" class="input_green center">
+    <option value="-1">Все</option>
+</select>
 
 <div>Прайс лист:</div>
 
-<table id="price_list">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Раздел</th>
-        <th>Тип авто</th>
-        <th>Название детали</th>
-        <th>Название работы</th>
-        <th>Цена</th>
-    </tr>
-    </thead>
+<div id="table-container">
+    <table id="price_list">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Раздел</th>
+            <th>Тип авто</th>
+            <th>Название детали</th>
+            <th>Название работы</th>
+            <th>Цена</th>
+        </tr>
+        </thead>
 
-    <tbody>
+        <tbody>
 
-    <?php
-    $i = 0;
-    $priceList = $priceListDao->getAllServices();
+        <?php
+        $i = 0;
+        $priceList = $priceListDao->getAllServices();
 
-    foreach ($priceList as $item) {
+        foreach ($priceList as $item) {
 
-        $carType = $carTypeDao->getCarTypeById($item->getIdCarType())->getName();
-        $workName = $workDao->getById($item->getIdWork())->getName();
-        $sectionName = $sectionDao->getById($item->getIdSection())->getName();
-        $detailName = $detailDao->getDetailById($item->getIdDetail())->getName();
+            $carType = $carTypeDao->getCarTypeById($item->getIdCarType())->getName();
+            $workName = $workDao->getById($item->getIdWork())->getName();
+            $sectionName = $sectionDao->getById($item->getIdSection())->getName();
+            $detailName = $detailDao->getDetailById($item->getIdDetail())->getName();
 
-        echo <<< HTML
+            echo <<< HTML
             <tr>
                 <td>{$item->getId()}</td>
                 <td>{$sectionName}</td>
@@ -57,12 +91,12 @@ $detailDao = Factory::getDetailDao();
                 <td>{$item->getPrice()}</td>
             </tr>
 HTML;
-    }
-    ?>
+        }
+        ?>
 
-
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 
 <script type="text/javascript">
     var sections = '{<?php echo implode(',', $sectionDao->getAll());?>}';
@@ -100,7 +134,7 @@ HTML;
         },
         columns: {
             identifier: [0, 'id'],
-            editable: [[1, 'Раздел', sections], [2, 'Тип авто', carTypes], [3, 'Название детали', details], [4, 'Название работы', works], [5, 'Цена']]
+            editable: [[1, 'SectionId', sections], [2, 'CarTypeId', carTypes], [3, 'DetailId', details], [4, 'WorkId', works], [5, 'Price']]
         }
     });
 

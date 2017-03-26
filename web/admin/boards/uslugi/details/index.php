@@ -35,41 +35,42 @@ $currentSection = $_GET['section'];
         sectionSelect.change(function () {
             var selectedSection = sectionSelect.find('option:selected');
             var filter = '';
-            if(selectedSection.val() != -1){
+            if (selectedSection.val() != -1) {
                 filter = selectedSection.text();
             }
 
-            filterTable($('#sections_table').find('tbody'), filter, 'tabledit-span' ,'text-muted');
+            filterTable($('#sections_table').find('tbody'), filter, 'tabledit-span', 'text-muted');
         })
     })
 </script>
 
 <div class="center bold text">Раздел:</div>
 <select id="sectionSelect" style="width: 50%;" class="input_green center">
-<option value="-1">Все</option>
+    <option value="-1">Все</option>
 </select>
 
-<table id="sections_table">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Деталь</th>
-        <th>Раздел</th>
-    </tr>
-    </thead>
+<div id="table-container">
+    <table id="sections_table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Деталь</th>
+            <th>Раздел</th>
+        </tr>
+        </thead>
 
-    <tbody>
+        <tbody>
 
-    <?php
-    if (isset($currentSection)) {
-        $sections = $daoDetails->getDetailsFromSection($currentSection);
-    } else {
-        $sections = $daoDetails->getAll();
-    }
+        <?php
+        if (isset($currentSection)) {
+            $sections = $daoDetails->getDetailsFromSection($currentSection);
+        } else {
+            $sections = $daoDetails->getAll();
+        }
 
-    foreach ($sections as $item) {
-        $sectionName = $sectionDao->getById($item->getIdSection())->getName();
-        echo <<<HTML
+        foreach ($sections as $item) {
+            $sectionName = $sectionDao->getById($item->getIdSection())->getName();
+            echo <<<HTML
 <tr>
 <td>{$item->getId()}</td>
 <td>{$item->getName()}</td>
@@ -77,10 +78,11 @@ $currentSection = $_GET['section'];
 </tr>
 HTML;
 
-    }
-    ?>
-    </tbody>
-</table>
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
 
 <div style="margin: 30px"></div>
 

@@ -2,15 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: apple
- * Date: 23.03.17
- * Time: 21:20
+ * Date: 26.03.17
+ * Time: 8:35
  */
 require_once "../../../../../../bootstrap.php";
 
 use Factory\Factory;
 
-$daoDetails = Factory::getDetailDao();
+$priceListDao = Factory::getPriceListDao();
+$carTypeDao = Factory::getCarTypeDao();
+$workDao = Factory::getWorkDao();
 $sectionDao = Factory::getSectionDao();
+$detailDao = Factory::getDetailDao();
 ?>
 
 <div id="table-container">
@@ -18,8 +21,11 @@ $sectionDao = Factory::getSectionDao();
         <thead>
         <tr>
             <th>#</th>
-            <th>Деталь</th>
             <th>Раздел</th>
+            <th>Тип авто</th>
+            <th>Название детали</th>
+            <th>Название работы</th>
+            <th>Цена</th>
             <th></th>
         </tr>
         </thead>
@@ -27,8 +33,11 @@ $sectionDao = Factory::getSectionDao();
         <tbody>
         <tr>
             <td>#</td>
-            <td><input id="new_detail_name" class="input_green"/></td>
             <td><select id="sectionSelect" class="input_green"></select></td>
+            <td><select id="carTypeSelect" class="input_green"></select></td>
+            <td><select id="detailSelect" class="input_green"></select></td>
+            <td><select id="workSelect" class="input_green"></select></td>
+            <td><input id="price" class="input_green"/></td>
             <td>
                 <button class="button button-save" onclick="sendAjax()">Сохранить</button>
             </td>
@@ -41,7 +50,12 @@ $sectionDao = Factory::getSectionDao();
 <script type="text/javascript">
     $(document).ready(function () {
         var sections = JSON.parse('{<?php echo implode(',', $sectionDao->getAll());?>}');
+        var carTypes = '{<?php echo implode(',', $carTypeDao->getAll());?>}';
+        var works = '{<?php echo implode(',', $workDao->getAll());?>}';
+        var details = '{<?php echo implode(',', $detailDao->getAll());?>}';
+
         var sectionSelect = $('#sectionSelect');
+        var carTypeSelect = $('#carTypeSelect');
         var key;
 
         for (key in sections) {

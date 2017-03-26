@@ -14,31 +14,33 @@ use Factory\Factory;
 $daoCarTypes = Factory::getCarTypeDao();
 ?>
 
-<table id="car_types_table">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Тип авто</th>
-    </tr>
-    </thead>
+<div id="table-container">
+    <table id="car_types_table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Тип авто</th>
+        </tr>
+        </thead>
 
-    <tbody>
+        <tbody>
 
-    <?php
+        <?php
 
-    foreach ($daoCarTypes->getAll() as $item) {
+        foreach ($daoCarTypes->getAll() as $item) {
 
-        echo <<<HTML
+            echo <<<HTML
 <tr>
 <td>{$item->getId()}</td>
 <td>{$item->getName()}</td>
 </tr>
 HTML;
 
-    }
-    ?>
-    </tbody>
-</table>
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
 
 <div style="margin: 30px"></div>
 

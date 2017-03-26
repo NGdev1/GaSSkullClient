@@ -1,24 +1,25 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: apple
- * Date: 18.03.17
- * Time: 12:26
+ * User: Михаил
+ * Date: 26.03.2017
+ * Time: 20:23
  */
+
 require_once "../../../../../bootstrap.php";
 
 use Factory\Factory;
 
-$daoDetails = Factory::getDetailDao();
+$daoWorks = Factory::getWorkDao();
 
 ?>
 
 <div id="table-container">
-    <table id="details_table">
+    <table id="works_table">
         <thead>
         <tr>
             <th>#</th>
-            <th>Деталь</th>
+            <th>Работа</th>
         </tr>
         </thead>
 
@@ -26,7 +27,7 @@ $daoDetails = Factory::getDetailDao();
 
         <?php
 
-        foreach ($daoDetails->getAll() as $item) {
+        foreach ($daoWorks->getAll() as $item) {
             echo <<<HTML
 <tr>
 <td>{$item->getId()}</td>
@@ -44,8 +45,8 @@ HTML;
 
 <script type="text/javascript">
 
-    $('#details_table').Tabledit({
-        url: 'http://gasskull.ru/api/pricelistedit/DetailsEdit.php',
+    $('#works_table').Tabledit({
+        url: 'http://gasskull.ru/api/pricelistedit/WorksEdit.php',
         inputClass: 'input_green',
         buttons: {
             edit: {
@@ -74,7 +75,7 @@ HTML;
         },
         columns: {
             identifier: [0, 'id'],
-            editable: [[1, 'DetailName']]
+            editable: [[1, 'WorkName']]
         }
     })
 </script>

@@ -7,7 +7,10 @@
  */
 namespace Services;
 
-use DAO\UserDaoImpl;
+use Factory\Factory;
+
+require_once "../../bootstrap.php";
+
 
 class UserServicesImpl implements UserService
 {
@@ -16,7 +19,7 @@ class UserServicesImpl implements UserService
 
     private function __construct()
     {
-        $this->userDao = UserDaoImpl::getInstance();
+        $this->userDao = Factory::getUserDao();
     }
 
     public static function getInstance(){

@@ -1,15 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: apple
- * Date: 23.03.17
- * Time: 21:20
+ * User: Михаил
+ * Date: 26.03.2017
+ * Time: 20:23
  */
+
 require_once "../../../../../../bootstrap.php";
 
 use Factory\Factory;
 
-$daoDetails = Factory::getDetailDao();
+$daoWorks = Factory::getWorkDao();
 ?>
 
 <div id="table-container">
@@ -17,7 +18,7 @@ $daoDetails = Factory::getDetailDao();
         <thead>
         <tr>
             <th>#</th>
-            <th>Деталь</th>
+            <th>Работа</th>
             <th></th>
         </tr>
         </thead>
@@ -25,7 +26,7 @@ $daoDetails = Factory::getDetailDao();
         <tbody>
         <tr>
             <td>#</td>
-            <td><input id="new_detail_name" class="input_green"/></td>
+            <td><input id="new_work_name" class="input_green"/></td>
             <td>
                 <button class="button button-save" onclick="sendAjax()">Сохранить</button>
             </td>
@@ -37,15 +38,15 @@ $daoDetails = Factory::getDetailDao();
 
 <script type="text/javascript">
     function sendAjax() {
-        var newDetailName = $('#new_detail_name').val();
-        if (!newDetailName) return;
+        var newWorkName = $('#new_work_name').val();
+        if (!newWorkName) return;
 
         $.ajax({
-            url: 'http://gasskull.ru/api/pricelistedit/DetailsEdit.php',
+            url: 'http://gasskull.ru/api/pricelistedit/WorksEdit.php',
             type: 'POST',
             data: {
                 'action': 'add',
-                'DetailName': newDetailName
+                'WorkName': newWorkName
             }
         }).done(function (data) {
             var resp = JSON.parse(data);

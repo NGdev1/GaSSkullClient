@@ -1,20 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: apple
- * Date: 16.03.17
- * Time: 9:34
+ * User: Михаил
+ * Date: 26.03.2017
+ * Time: 20:17
  */
 
-//PriceListEdit
+//Works Edit
 require_once "../../../bootstrap.php";
+
+use Factory\Factory;
+use Models\PriceList\Work;
 
 //\Utils\Utils::enableLogging();
 
-use Factory\Factory;
-use Models\PriceList\PriceListItem;
-
-$priceListDao = Factory::getPriceListDao();
+$workDao = Factory::getWorkDao();
 
 function showResult($status, $errors)
 {
@@ -36,42 +36,34 @@ if (!isset($action)) {
 
 if ($action == 'edit') {
     $id = $_POST['id'];
-    $idSection = $_POST['SectionId'];
-    $idCarType = $_POST['CarTypeId'];
-    $idDetail = $_POST['DetailId'];
-    $idWork = $_POST['WorkId'];
-    $price = $_POST['Price'];
+    $workName = $_POST['WorkName'];
 
-    if (!isset($id) || !isset($idSection) || !isset($idCarType) || !isset($idDetail) || !isset($idWork) || !isset($price)) {
+    if (!isset($id) || !isset($workName)) {
         $errors[] = 'Нет параметров';
         showResult('error', $errors);
     }
 
     try {
-        $priceListItem = new PriceListItem($id, $price, $idCarType, $idSection, $idWork, $idDetail);
+        $work = new Work($id, $workName);
 
-        $priceListDao->update($priceListItem);
+        $workDao->update($work);
     } catch (Exception $e) {
         showResult('error', [$e->getMessage()]);
     }
 
     showResult('ok', []);
 } else if ($action == 'add') {
-    $idSection = $_POST['SectionId'];
-    $idCarType = $_POST['CarTypeId'];
-    $idDetail = $_POST['DetailId'];
-    $idWork = $_POST['WorkId'];
-    $price = $_POST['Price'];
+    $workName = $_POST['WorkName'];
 
-    if (!isset($idSection) || !isset($idCarType) || !isset($idDetail) || !isset($idWork) || !isset($price)) {
+    if (!isset($workName)) {
         $errors[] = 'Нет параметров';
         showResult('error', $errors);
     }
 
-    $priceListItem = new PriceListItem(0, $price, $idCarType, $idSection, $idWork, $idDetail);
+    $work = new Work(0, $workName);
 
     try {
-        $priceListDao->save($priceListItem);
+        $workDao->save($work);
     } catch (Exception $e) {
         showResult('error', [$e->getMessage()]);
     }
@@ -85,7 +77,7 @@ if ($action == 'edit') {
     }
 
     try {
-        $priceListDao->deleteWithId($id);
+        $workDao->deleteWithId($id);
     } catch (Exception $e) {
         showResult('error', [$e->getMessage()]);
     }

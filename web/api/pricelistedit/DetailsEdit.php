@@ -37,17 +37,14 @@ if (!isset($action)) {
 if ($action == 'edit') {
     $id = $_POST['id'];
     $detailName = $_POST['DetailName'];
-    $idSection = $_POST['IdSection'];
-    if (!isset($id) || !isset($detailName) || !isset($idSection)) {
+
+    if (!isset($id) || !isset($detailName)) {
         $errors[] = 'Нет параметров';
         showResult('error', $errors);
     }
 
     try {
-        $detail = $detailDao->getDetailById($id);
-
-        $detail->setName($detailName);
-        $detail->setIdSection($idSection);
+        $detail = new Detail($id, $detailName);
 
         $detailDao->updateDetail($detail);
     } catch (Exception $e) {
@@ -57,14 +54,13 @@ if ($action == 'edit') {
     showResult('ok', []);
 } else if ($action == 'add') {
     $detailName = $_POST['DetailName'];
-    $idSection = $_POST['IdSection'];
 
-    if (!isset($detailName) || !isset($idSection)) {
+    if (!isset($detailName)) {
         $errors[] = 'Нет параметров';
         showResult('error', $errors);
     }
 
-    $detail = new Detail(0, $idSection, $detailName);
+    $detail = new Detail(0, $detailName);
 
     try {
         $detailDao->save($detail);

@@ -46,17 +46,19 @@ INSERT INTO `price_list` (`id`, `id_car_type`, `id_detail`, `id_section`, `id_wo
   (6, 6, 2, 1, 1, '300 - 750 р.'),
   (7, 7, 1, 1, 1, '400 - 750 р.');
 
-CREATE TABLE `price_list_details` (
-  `id` int(11) NOT NULL,
-  `id_section` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-INSERT INTO `price_list_details` (`id`, `id_section`, `name`) VALUES
-  (1, 2, 'амортизатор задний'),
-  (2, 3, 'амортизатор передний'),
-  (3, 1, 'бак топливный'),
-  (4, 1, 'балка задняя');
+CREATE TABLE IF NOT EXISTS `price_list_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+INSERT INTO `price_list_details` (`id`, `name`) VALUES
+  (1, 'амортизатор задний'),
+  (2, 'амортизатор передний'),
+  (3, 'бак топливный'),
+  (4, 'балка задняя');
+
 
 CREATE TABLE `price_list_sections` (
   `id` int(11) NOT NULL,
@@ -119,10 +121,6 @@ ALTER TABLE `price_list`
   ADD KEY `id_section` (`id_section`),
   ADD KEY `id_work` (`id_work`);
 
-ALTER TABLE `price_list_details`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_section` (`id_section`);
-
 ALTER TABLE `price_list_sections`
   ADD PRIMARY KEY (`id`);
 
@@ -157,9 +155,6 @@ ALTER TABLE `price_list`
   ADD CONSTRAINT `price_list_ibfk_2` FOREIGN KEY (`id_work`) REFERENCES `price_list_works` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `price_list_ibfk_3` FOREIGN KEY (`id_car_type`) REFERENCES `car_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `price_list_ibfk_4` FOREIGN KEY (`id_section`) REFERENCES `price_list_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-ALTER TABLE `price_list_details`
-  ADD CONSTRAINT `price_list_details_ibfk_1` FOREIGN KEY (`id_section`) REFERENCES `price_list_sections` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `service_record`
   ADD CONSTRAINT `service_record_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

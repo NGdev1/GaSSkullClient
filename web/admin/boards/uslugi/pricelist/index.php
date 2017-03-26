@@ -98,6 +98,8 @@ HTML;
     </table>
 </div>
 
+<div style="margin: 30px"></div>
+
 <script type="text/javascript">
     var sections = '{<?php echo implode(',', $sectionDao->getAll());?>}';
     var carTypes = '{<?php echo implode(',', $carTypeDao->getAll());?>}';

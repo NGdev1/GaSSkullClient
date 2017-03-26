@@ -30,9 +30,9 @@ function reload() {
 
 function buildInterface(menu, path) {
     var title = titleContainer;
-    title.fadeTo(200, 0.3, function () {
+    title.fadeTo(130, 0.3, function () {
         title.html(menu.title);
-        title.fadeTo(200, 1);
+        title.fadeTo(130, 1);
     });
 
     pathContainer.html('');
@@ -65,7 +65,7 @@ function buildInterface(menu, path) {
             buttonsContainer.append(button);
         }
         //buttonsContainer.show();
-        buttonsContainer.show(200);
+        buttonsContainer.show(130);
         //buttonsContainer.slideDown(200);
     }
 

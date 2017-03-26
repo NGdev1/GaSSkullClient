@@ -79,7 +79,7 @@ class PriceListDaoImpl implements PriceListDao
           $id
         );
         $stmt->execute($parameters);
-        $resultSet = $stmt->fetchAll();
+        $resultSet = $stmt->fetch();
         return $this->getItemFromResultSet($resultSet);
     }
 

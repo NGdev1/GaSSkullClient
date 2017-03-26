@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!empty($_SESSION["username"])) {
-    header("Location: /gasskull.ru/admin");
+    header("Location: http://gasskull.ru/admin/");
 }
 ?>
 

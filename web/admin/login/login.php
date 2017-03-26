@@ -1,5 +1,7 @@
 <?php
 
+require_once "../../../bootstrap.php";
+
 use Services\UserServicesImpl;
 use Utils\Utils;
 
@@ -12,7 +14,7 @@ if(isset($_GET['action'])){
         session_start();
         $_SESSION['username'] = NULL;
 
-        header("Location: /gasskull.ru/admin/login");
+        header("Location: http://gasskull.ru/admin/login");
         exit;
     }
 }
@@ -24,12 +26,12 @@ if (isset($_POST['submit'])) {
         session_start();
         $_SESSION['username'] = $_POST['name'];
 
-        header("Location: /gasskull.ru/admin");
+        header("Location: http://gasskull.ru/admin");
         exit;
     }
 }
 
 //if no action
-header("Location: /gasskull.ru/admin/login");
+header("Location: http://gasskull.ru/admin/login");
 exit;
 

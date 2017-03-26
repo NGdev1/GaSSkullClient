@@ -56,7 +56,11 @@
 }
 
 #table-container{
-    overflow: scroll;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 table {

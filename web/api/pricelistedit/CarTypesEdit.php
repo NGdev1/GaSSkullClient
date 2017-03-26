@@ -41,9 +41,7 @@ if ($action == 'edit') {
     }
 
     try {
-        $carType = $carTypesDao->getCarTypeById($id);
-
-        $carType->setName($carTypeName);
+        $carType = new CarType($id, $carTypeName);
 
         $carTypesDao->updateCarType($carType);
     } catch (Exception $e) {

@@ -28,6 +28,10 @@ class WorkDaoImpl implements WorkDao
         return self::$instance;
     }
 
+    /**
+     * @param $resultSet
+     * @return Work[]
+     */
     private function getItemsFromResultSet($resultSet)
     {
         $works = array();
@@ -39,6 +43,10 @@ class WorkDaoImpl implements WorkDao
         return $works;
     }
 
+    /**
+     * @param $resultSet
+     * @return Work
+     */
     private function getItemFromResultSet($resultSet)
     {
         $work = new Work(
@@ -74,6 +82,9 @@ class WorkDaoImpl implements WorkDao
         return $this->getItemFromResultSet($resultSet);
     }
 
+    /**
+     * @return Work[]
+     */
     function getAll()
     {
         $sql = 'SELECT * FROM price_list_works;';

@@ -50,12 +50,14 @@ $detailDao = Factory::getDetailDao();
 <script type="text/javascript">
     $(document).ready(function () {
         var sections = JSON.parse('{<?php echo implode(',', $sectionDao->getAll());?>}');
-        var carTypes = '{<?php echo implode(',', $carTypeDao->getAll());?>}';
-        var works = '{<?php echo implode(',', $workDao->getAll());?>}';
-        var details = '{<?php echo implode(',', $detailDao->getAll());?>}';
+        var carTypes = JSON.parse('{<?php echo implode(',', $carTypeDao->getAll());?>}');
+        var works = JSON.parse('{<?php echo implode(',', $workDao->getAll());?>}');
+        var details = JSON.parse('{<?php echo implode(',', $detailDao->getAll());?>}');
 
         var sectionSelect = $('#sectionSelect');
         var carTypeSelect = $('#carTypeSelect');
+        var detailSelect = $('#detailSelect');
+        var workSelect = $('#workSelect');
         var key;
 
         for (key in sections) {
@@ -68,20 +70,60 @@ $detailDao = Factory::getDetailDao();
                 sectionSelect.append(newOption);
             }
         }
+
+        for (key in carTypes) {
+            if (carTypes.hasOwnProperty(key)) {
+                var newCarType = $('<option/>', {
+                    text: carTypes[key],
+                    'value': key
+                });
+
+                carTypeSelect.append(newCarType);
+            }
+        }
+
+        for (key in works) {
+            if (works.hasOwnProperty(key)) {
+                var newWork = $('<option/>', {
+                    text: works[key],
+                    'value': key
+                });
+
+                workSelect.append(newWork);
+            }
+        }
+
+        for (key in details) {
+            if (details.hasOwnProperty(key)) {
+                var newDetail = $('<option/>', {
+                    text: details[key],
+                    'value': key
+                });
+
+                detailSelect.append(newDetail);
+            }
+        }
     });
 
     function sendAjax() {
-        var newDetailName = $('#new_detail_name').val();
+        var price = $('#price').val();
         var sectionId = $('#sectionSelect').find('option:selected').val();
-        if (!newDetailName) return;
+        var detailId = $('#detailSelect').find('option:selected').val();
+        var carTypeId = $('#carTypeSelect').find('option:selected').val();
+        var workId = $('#workSelect').find('option:selected').val();
+
+        if (!price) return;
 
         $.ajax({
-            url: 'http://gasskull.ru/api/pricelistedit/DetailsEdit.php',
+            url: 'http://gasskull.ru/api/pricelistedit/',
             type: 'POST',
             data: {
                 'action': 'add',
-                'DetailName': newDetailName,
-                'IdSection': sectionId
+                'DetailId': detailId,
+                'SectionId': sectionId,
+                'CarTypeId': carTypeId,
+                'WorkId': workId,
+                'Price': price
             }
         }).done(function (data) {
             var resp = JSON.parse(data);

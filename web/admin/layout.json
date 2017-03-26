@@ -9,13 +9,21 @@
          "menu": [
             {
                "title": "Прайс лист",
-               "url": "boards/uslugi/pricelist",
+               "url": "boards/uslugi/pricelist/",
                "leftButton": "back",
-               "rightButton": "logout"
+               "rightButton": "logout",
+               "menu": [
+                  {
+                     "title": "Добавить",
+                     "leftButton": "back",
+                     "rightButton": "logout",
+                     "url": "boards/uslugi/pricelist/add/"
+                  }
+               ]
             },
             {
                "title": "Разделы",
-               "url": "boards/uslugi/sections",
+               "url": "boards/uslugi/sections/",
                "leftButton": "back",
                "rightButton": "logout",
                "menu": [
@@ -23,7 +31,7 @@
                      "title": "Добавить раздел",
                      "leftButton": "back",
                      "rightButton": "logout",
-                     "url": "boards/uslugi/sections/add"
+                     "url": "boards/uslugi/sections/add/"
                   }
                ]
             },
@@ -31,13 +39,13 @@
                "title": "Типы авто",
                "leftButton": "back",
                "rightButton": "logout",
-               "url": "boards/uslugi/cartypes",
+               "url": "boards/uslugi/cartypes/",
                "menu": [
                   {
                      "title": "Добавить тип авто",
                      "leftButton": "back",
                      "rightButton": "logout",
-                     "url": "boards/uslugi/cartypes/add"
+                     "url": "boards/uslugi/cartypes/add/"
                   }
                ]
             },
@@ -45,20 +53,29 @@
                "title": "Детали",
                "leftButton": "back",
                "rightButton": "logout",
-               "url": "boards/uslugi/details",
+               "url": "boards/uslugi/details/",
                "menu": [
                   {
                      "title": "Добавить деталь",
                      "leftButton": "back",
                      "rightButton": "logout",
-                     "url": "boards/uslugi/details/add"
+                     "url": "boards/uslugi/details/add/"
                   }
                ]
             },
             {
                "title": "Работы",
                "leftButton": "back",
-               "rightButton": "logout"
+               "rightButton": "logout",
+               "url": "boards/uslugi/works/",
+               "menu": [
+                  {
+                     "title": "Добавить вид работы",
+                     "leftButton": "back",
+                     "rightButton": "logout",
+                     "url": "boards/uslugi/works/add/"
+                  }
+               ]
             }
          ]
       }

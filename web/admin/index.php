@@ -1,11 +1,11 @@
 <?php
-//session_start();
-//
-//if (empty($_SESSION['username'])) {
-//    header("Location: /gasskull.ru/admin/login");
-//}
-//
-//?>
+session_start();
+
+if (empty($_SESSION['username'])) {
+    header("Location: http://gasskull.ru/admin/login/");
+}
+
+?>
 
 <!DOCTYPE html>
 <html>

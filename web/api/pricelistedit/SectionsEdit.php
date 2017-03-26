@@ -39,9 +39,7 @@ if ($action == 'edit') {
     }
 
     try {
-        $section = $sectionDao->getById($id);
-
-        $section->setName($sectionName);
+        $section = new Section($id, $sectionName);
 
         $sectionDao->update($section);
     } catch (Exception $e) {

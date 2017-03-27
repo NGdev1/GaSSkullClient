@@ -81,6 +81,14 @@ if (empty($_SESSION['username'])) {
         reload();
     }
 
+    $(document).on('keyup', function(event) {
+        switch (event.keyCode) {
+            case 27: // Escape.
+                back();
+                break;
+        }
+    })
+
 </script>
 <!-- /container -->
 

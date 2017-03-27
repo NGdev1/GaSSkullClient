@@ -14,5 +14,11 @@
       "class": "navigationBarButton blue",
       "text": "Назад",
       "onclick": "back()"
+   },
+   {
+      "type": "help",
+      "class": "navigationBarButton blue",
+      "text": "?",
+      "onclick": "help()"
    }
 ]

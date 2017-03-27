@@ -9,7 +9,7 @@
 //Sections Edit
 require_once "../../../bootstrap.php";
 
-\Utils\Utils::enableLogging();
+//\Utils\Utils::enableLogging();
 
 use Factory\Factory;
 use Models\PriceList\Section;

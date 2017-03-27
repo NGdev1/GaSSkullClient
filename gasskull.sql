@@ -16,7 +16,7 @@ INSERT INTO `admin` (`id`, `login`, `password`) VALUES
 
 CREATE TABLE `car_type` (
   `id` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL
+  `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 INSERT INTO `car_type` (`id`, `name`) VALUES
@@ -24,7 +24,7 @@ INSERT INTO `car_type` (`id`, `name`) VALUES
   (2, 'ВАЗ 8кл'),
   (3, 'ВАЗ 16кл'),
   (4, 'Нива'),
-  (5, 'Шеви Нива'),
+  (5, 'Нива Шеви'),
   (6, 'Иномарка седан'),
   (7, 'Паркетник');
 
@@ -35,42 +35,32 @@ CREATE TABLE `price_list` (
   `id_section` int(11) NOT NULL,
   `id_work` int(11) NOT NULL,
   `price` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `price_list` (`id`, `id_car_type`, `id_detail`, `id_section`, `id_work`, `price`) VALUES
-  (1, 2, 1, 1, 1, '400 р.'),
-  (2, 1, 1, 1, 1, '400 р.'),
-  (3, 3, 1, 1, 1, '400 р.'),
-  (4, 4, 3, 1, 1, '300 р.'),
-  (5, 5, 2, 1, 1, '300 р.'),
-  (6, 6, 2, 1, 1, '300 - 750 р.'),
-  (7, 7, 1, 1, 1, '400 - 750 р.');
+  (1, 1, 1, 1, 1, '400 р.');
 
 
 CREATE TABLE IF NOT EXISTS `price_list_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
+  `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 INSERT INTO `price_list_details` (`id`, `name`) VALUES
-  (1, 'амортизатор задний'),
-  (2, 'амортизатор передний'),
-  (3, 'бак топливный'),
-  (4, 'балка задняя');
+  (1, 'Амортизатор задний'),
+  (2, 'Амортизатор передний'),
+  (3, 'Бак топливный'),
+  (4, 'Балка задняя');
 
 
 CREATE TABLE `price_list_sections` (
   `id` int(11) NOT NULL,
-  `name` varchar(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `name` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `price_list_sections` (`id`, `name`) VALUES
-  (1, 'Трансмиссия'),
-  (2, 'Ходовая'),
-  (3, 'Двигатель'),
-  (4, 'Диагностика'),
-  (5, 'Другое');
+  (1, 'Нет разделов');
 
 CREATE TABLE `price_list_works` (
   `id` int(11) NOT NULL,
@@ -93,12 +83,12 @@ CREATE TABLE `users` (
   `pin` int(11) NOT NULL,
   `id_car_type` int(11) NOT NULL,
   `device_id` int(11) NOT NULL,
-  `device_platform` varchar(100) NOT NULL,
-  `device_name` varchar(100) NOT NULL,
+  `device_platform` varchar(300) NOT NULL,
+  `device_name` varchar(300) NOT NULL,
   `phone` varchar(12) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `car_number` varchar(10) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `image` varchar(300) NOT NULL,
+  `car_number` varchar(30) NOT NULL,
+  `name` varchar(300) NOT NULL,
   `registration_date` date NOT NULL,
   `last_activity` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;

@@ -14,10 +14,23 @@ interface PriceListDao
 {
     //price list
     function save(PriceListItem $item);
+
+    /**
+     * @param $id
+     * @return PriceListItem
+     */
     function findById($id);
     function update(PriceListItem $priceListItem);
     function deleteWithId($id);
+
+    /**
+     * @return PriceListItem[]
+     */
     function getAllServices();
 
+    /**
+     * @param $q
+     * @return PriceListItem[]
+     */
     function getArrayBySearch($q);
 }

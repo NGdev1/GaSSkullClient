@@ -2,7 +2,7 @@
 
 require_once "../../../bootstrap.php";
 
-use Services\UserServicesImpl;
+use Factory\Factory;
 use Utils\Utils;
 
 Utils::enableLogging();
@@ -20,8 +20,8 @@ if(isset($_GET['action'])){
 }
 
 if (isset($_POST['submit'])) {
-    $userServices = UserServicesImpl::getInstance();
-    $state = $userServices->tryToLogin($_POST['name'], $_POST['pass']);
+    $adminServices = Factory::getAdminService();
+    $state = $adminServices->tryToLogin($_POST['name'], $_POST['pass']);
     if ($state == 2) {
         session_start();
         $_SESSION['username'] = $_POST['name'];

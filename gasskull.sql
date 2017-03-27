@@ -12,7 +12,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `login`, `password`) VALUES
   (1, 'Misha', 123123),
-  (2, 'Il', 123321);
+  (2, 'Lesnik', 123123);
 
 CREATE TABLE `car_type` (
   `id` int(11) NOT NULL,

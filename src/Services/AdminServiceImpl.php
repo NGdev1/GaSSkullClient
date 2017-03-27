@@ -2,30 +2,32 @@
 /**
  * Created by PhpStorm.
  * User: apple
- * Date: 17.02.17
- * Time: 6:59
+ * Date: 27.03.17
+ * Time: 6:53
  */
+
 namespace Services;
 
 use Factory\Factory;
 
-class UserServicesImpl implements UserService
+class AdminServiceImpl implements AdminService
 {
     private static $instance;
-    private $userDao;
+    private $adminDao;
 
     private function __construct()
     {
-        $this->userDao = Factory::getUserDao();
+        $this->adminDao = Factory::getAdminDao();
     }
 
     public static function getInstance(){
         if(self::$instance == null){
-            self::$instance = new UserServicesImpl();
+            self::$instance = new AdminServiceImpl();
         }
 
         return self::$instance;
     }
+
 
     /**
      * @param $login
@@ -34,7 +36,7 @@ class UserServicesImpl implements UserService
      * user's pin
      * @return int
      * returns 0 if login is incorrect
-     * returns 1 if password is incorrest
+     * returns 1 if password is incorrect
      * returns 2 if all right
      */
     function tryToLogin($login, $password)
@@ -42,17 +44,12 @@ class UserServicesImpl implements UserService
         if ($login == null || $password == null) return 0;
         if ($login == '') return 0;
 
-        if($user = $this->userDao->findByName($login)){
-            if($user->getPin() == $password){
+        if($admin = $this->adminDao->findByName($login)){
+            if($admin->getPassword() == $password){
                 return 2;
             } else {
                 return 1;
             }
         } else return 0;
-    }
-
-    function deleteUserWithDeviceId($deviceId)
-    {
-        $this->userDao->deleteWithDeviceId($deviceId);
     }
 }

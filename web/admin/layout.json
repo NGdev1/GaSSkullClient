@@ -1,6 +1,7 @@
 {
    "title": "Панель администратора",
    "rightButton": "logout",
+   "leftButton": "site",
    "menu": [
       {
          "title": "Редактировать прайс лист",
@@ -81,6 +82,12 @@
       },
       {
          "title": "Мои клиенты",
+         "leftButton": "back",
+         "rightButton": "logout",
+         "url": "boards/users/"
+      },
+      {
+         "title": "Редактировать сайт",
          "leftButton": "back",
          "rightButton": "logout"
       }

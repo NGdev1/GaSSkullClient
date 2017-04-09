@@ -3,6 +3,7 @@
 <head>
     <title>GaSSkull</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="res/css/site/style.css" rel="stylesheet" media="screen">
     <link href="res/css/style.css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,17 +12,16 @@
 
 <body>
 
-<div class="container">
-    <div class="center-content">
-        <div class="title center">Сайт автосервиса GaSSkull</div>
-        <div class="text center">Мы делаем упор на качество</div>
-        <div>HELLO!!!</div>
-
-        <div class="center">
-            <a class="button" href="admin">Admin</a>
-        </div>
+    <div class="top-image">
+    <div class="image-top-logo">
+        <div class="text-top-left">Высокая гора</div>
+        <div class="text-top-right">Казань</div>
     </div>
+
 </div>
+
+
+<a class="button-primary center" href="admin">Admin</a>
 <!-- /container -->
 
 </body>

@@ -9,7 +9,7 @@
 
 require_once '../../../bootstrap.php';
 
-use DAO\Models\User;
+use Models\User;
 use DAO\UserDaoImpl;
 use Utils\FormDataCheck;
 use Services\UserServicesImpl;

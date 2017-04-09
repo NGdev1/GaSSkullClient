@@ -8,7 +8,7 @@
 
 namespace DAO;
 
-use DAO\Models\User;
+use Models\User;
 
 interface UserDao
 {

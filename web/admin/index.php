@@ -66,6 +66,10 @@ if (empty($_SESSION['username'])) {
         window.location.href = 'login/login.php?action=logout';
     }
 
+    function site() {
+        window.location.href = 'http://gasskull.ru/';
+    }
+
     function back() {
         finder.upFolders(1);
         reload();

@@ -20,5 +20,11 @@
       "class": "navigationBarButton blue",
       "text": "?",
       "onclick": "help()"
+   },
+   {
+      "type": "site",
+      "class": "navigationBarButton grey",
+      "text": "Сайт",
+      "onclick": "site()"
    }
 ]

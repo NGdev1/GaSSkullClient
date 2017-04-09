@@ -9,7 +9,7 @@
 
 namespace DAO;
 
-use DAO\Models\User;
+use Models\User;
 use Utils\DbWrapper;
 
 class UserDaoImpl implements UserDao

@@ -5,7 +5,7 @@
  * Date: 08.02.17
  * Time: 8:59
  */
-namespace DAO\Models;
+namespace Models;
 
 class User {
     private $id;

@@ -1,4 +1,10 @@
 @font-face {
+    font-family: "Copperplate";
+    src: url("../fonts/Copperplate/Copperplate.otf");
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Helvetica Neue";
     src: url("../fonts/Helvetica Neue/HelveticaNeueCyr-UltraLight.otf");
     font-weight: 100;

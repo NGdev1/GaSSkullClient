@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="res/js/jquery.min.js"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="res/js/map.js"></script>
 
     <script type="text/javascript">
 
@@ -77,9 +79,5 @@
 
 <div class="image-bottom-logo center"></div>
 <!-- /container -->
-
-<script src="res/js/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbByzdPWzdq1FU3u9vrOWcjOUpPaGJfMA&callback=initMap"
-        async defer></script>
 </body>
 </html>

@@ -1,32 +1,244 @@
-.top-image {
-    background: url("../../images/TopBackground.png") no-repeat;
-    width: 100%;
+.animated-element {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+body{
+    background-color: #E9E9E9;
+}
+
+.header-margin{
+    height: 228px;
+}
+
+.footer{
+    background: url("../../images/BottomBackground.png") no-repeat bottom left;
     background-size: 100%;
-    background-origin: content-box;
+    height: 190px;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header-background-big {
+    background: url("../../images/TopBackgroundBig.png") no-repeat top center;
+    background-size: 100%;
+
+    width: 100%;
+    height: 228px;
+
+    margin: -10px 0 0 0;
+    padding: 0;
+    position: fixed;
+}
+
+.header-background {
+    background: url("../../images/TopBackground.png") repeat-x top left;
+    background-size: 100%;
+
+    width: 100%;
     height: 228px;
     margin: 0;
     padding: 0;
+    position: fixed;
 }
 
 .image-top-logo {
     background: url("../../images/Logo/GaSSkull autoservice v1.png") no-repeat;
     background-size: 100%;
+}
+
+.image-bottom-logo{
+    background: url("../../images/Logo/Logo1.png") no-repeat;
+    background-size: 100%;
+    height: 50px;
+    width: 150px;
+
+    position: relative;
+    bottom:100px;
+}
+
+.header-background > .image-top-logo {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+
+    margin-left: 20px;
+}
+
+.header-background-big > .image-top-logo {
     width: 190px;
     height: 190px;
     margin-top: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-top-right {
+    /* Казань: */
+    font-size: 25px;
+    color: #CAC9C5;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
+    height: 0;
+
+    position: fixed;
+}
+
+.text-top-left {
+    /* Высокая гора: */
+    font-size: 25px;
+    color: #CAC9C5;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
+    height: 0;
+
+    position: fixed;
+}
+
+.header-background-big > .text-top-left {
+    transform: rotate(8deg);
+    left: 300px;
+    top: 50px;
+}
+
+.header-background-big > .text-top-right {
+    transform: rotate(-8deg);
+    right: 300px;
+    top: 50px;
+}
+
+.header-background > .text-top-right {
+    top: 30px;
+    left: 700px;
+}
+
+.header-background > .text-top-left {
+    top: 30px;
+    left: 379px;
+}
+
+@media (min-width: 1500px) {
+    .header-background-big {
+        /* Combined Shape: */
+        background: linear-gradient(-180deg, #737373 0%, #3F3F3F 100%);
+        height: 180px;
+    }
+
+    .header-background {
+        background: linear-gradient(-180deg, #737373 0%, #3F3F3F 100%);
+        height: 130px;
+    }
+
+    .header-background > .image-top-logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 1181px) and (max-width: 1280px) {
+    .image-top-logo {
+        width: 170px !important;
+        height: 170px !important;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1180px) {
+    .image-top-logo {
+        width: 140px !important;
+        height: 140px !important;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 1000px) {
+    .header-margin{
+        height: 170px;
+    }
+
+    .header-background-big {
+        background-size: 1000px;
+    }
+
+    .header-background {
+        background-size: 1000px;
+    }
+
+    .header-background-big > .image-top-logo {
+        width: 140px;
+        height: 140px;
+
+        margin-top: 15px;
+    }
+
+    .header-background > .image-top-logo {
+        width: 135px;
+        height: 135px;
+
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .header-background-big > .text-top-left {
+        left: 40px;
+        top: 30px;
+    }
+
+    .header-background-big > .text-top-right {
+        display: none;
+        /*right: 40px;*/
+        /*top: 30px;*/
+    }
+
+    .header-background-big > .text-phone{
+        top: 20px;
+    }
+
+    .header-background > .text-top-left{
+        display: none;
+    }
+
+    .header-background > .text-top-right{
+        top: 20px;
+        left: 200px;
+    }
+
+    .footer{
+        background-size: 1000px;
+    }
+
+    .image-bottom-logo{
+        bottom: 80px;
+    }
 }
 
 @media (max-width: 500px) {
-    .top-image {
-        background-position: top center;
+    .header-margin{
+        height: 130px;
+    }
+
+    .header-background-big {
         background-size: 800px;
     }
 
-    .image-top-logo {
+    .header-background {
+        background-size: 800px;
+    }
+
+    .header-background-big > .image-top-logo {
         width: 120px;
         height: 120px;
-        margin-left: auto;
-        margin-right: auto;
+
+        margin-top: 12px;
+    }
+
+    .header-background > .image-top-logo {
+        width: 120px;
+        height: 120px;
+
+        margin-top: 10px;
+        margin-left: 12px;
     }
 
     .text-top-left {
@@ -36,68 +248,97 @@
     .text-top-right {
         display: none;
     }
-}
 
-.text-top-right {
-    /* Казань: */
-    transform: rotate(-8deg);
-    font-size: 25px;
-    color: #CAC9C5;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
-    float: left;
-    margin: 90px 20px 20px;
-}
+    .header-background > .text-phone{
+        font-size: 20px !important;
+        top: 15px !important;
+    }
 
-.text-top-left {
-    /* Высокая гора: */
-    transform: rotate(8deg);
-    font-size: 25px;
-    color: #CAC9C5;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
-    float: left;
-    margin: 90px 20px 20px;
+    .header-background-big > .text-phone{
+        display: none;
+    }
+
+    .button-secondary{
+        width: 70% !important;
+        border-radius: 5px;
+    }
+
+    .footer{
+        background-size: 1000px;
+    }
+
+    .image-bottom-logo{
+        bottom: 80px;
+    }
 }
 
 .button-secondary {
     /* Rectangle: */
-    background: #757474;
-    border: 1px solid #979797;
+    /* Rectangle: */
+    background-image: linear-gradient(-180deg, #8F8F8F 0%, #4E4E4E 100%);
+    border: none;
 
     /* Cancel: */
-    font-size: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    width: 300px;
+    padding: 10px 20px;
     color: #FFFFFF;
-    letter-spacing: 0;
-    text-shadow: 0 1px 0 rgba(255, 254, 255, 0.50);
 }
 
 .button-primary {
     /* Button Background: */
     background-image: linear-gradient(-180deg, #1AAB9E 0%, #137B72 100%);
     border-radius: 42px;
+    margin: 3px 2px 3px 2px;
+    width: 150px;
 
     /* OK: */
     font-size: 18px;
-    padding: 13px;
+    padding: 8px 4px;
     color: #FFFFFF;
     letter-spacing: 0;
 }
 
-.center-container {
+.gradient {
     /* Rectangle 2: */
     background-image: linear-gradient(-180deg, #FFFFFF 0%, #EAEAEA 100%);
-    border: 2px solid #4F4F4F;
+    border: 2px outset #4F4F4F;
 }
 
-.text-secondary {
+.text-site {
     /* Низкие цены, высокое: */
-    font-size: 30px;
     color: #646464;
     letter-spacing: 0;
+    width: 80%;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: Copperplate;
+    font-weight: 400;
+    font-size: 40px;
+    color: #4A4A4A;
 }
 
 .text-phone {
     /* +7(945)2345435: */
-    font-size: 36px;
+    font-size: 25px;
     color: #FFFFFF;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
+
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(229, 227, 223);
+    overflow: hidden;
+    z-index: -1;
 }

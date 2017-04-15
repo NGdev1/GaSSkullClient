@@ -14,6 +14,7 @@
     <script type="text/javascript">
 
         var isHeaderNarrow = false;
+        var contentContainer;
 
         function narrowHeader() {
             if (!isHeaderNarrow) {
@@ -38,6 +39,22 @@
             }
         });
 
+        $(document).ready(function () {
+           contentContainer = $('#content');
+        });
+
+        function loadContent(url) {
+            if (url != undefined && contentContainer != undefined) {
+                contentContainer.html('');
+                $.ajax({
+                    url: url,
+                    type: "GET"
+                }).done(function (data) {
+                    contentContainer.html(data);
+                });
+            }
+        }
+
     </script>
 </head>
 
@@ -57,17 +74,22 @@
     <div style="margin: 0 0 10px 30px" class="text-site">Наш адрес: Большая красная 35а, Высокая Гора.</div>
 </div>
 
+<div id="content">
 
-<div id="map"></div>
 
-<div style="padding: 30px 0" class="gradient">
-    <div class="text-site center">Вы наш постоянный клиент? Узнайте о накопленных баллах, и на что их можно потратить
+    <div id="map"></div>
+
+    <div style="padding: 30px 0" class="gradient">
+        <div class="text-site center">Вы наш постоянный клиент? Узнайте о накопленных баллах, и на что их можно
+            потратить
+        </div>
+        <a class="button-primary center" href="admin">Узнать</a>
     </div>
-    <a class="button-primary center" href="admin">Узнать</a>
+
 </div>
 
 <div class="container center">
-    <button class="button-secondary">Прайс-лист</button>
+    <button class="button-secondary" onclick="loadContent('/pricelist/')">Прайс-лист</button>
     <button class="button-secondary">Записаться</button>
     <button class="button-secondary">Написать</button>
     <button class="button-secondary">Приложение</button>

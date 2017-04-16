@@ -7,7 +7,7 @@ ymaps.ready(function () {
 
     var myMap = new ymaps.Map('map', {
             center: latLng,
-            zoom: 16
+            zoom: 12
         }, {
             searchControlProvider: 'yandex#search'
         }),
@@ -17,6 +17,7 @@ ymaps.ready(function () {
         });
 
     myMap.geoObjects.add(myPlacemark);
+    myMap.behaviors.disable(['scrollZoom', 'multiTouch']);
 });
 
 

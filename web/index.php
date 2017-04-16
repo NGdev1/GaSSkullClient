@@ -13,6 +13,13 @@
 
     <script type="text/javascript">
 
+        window.onpopstate = function(e){
+            if(e.state){
+                document.getElementById("content").innerHTML = e.state.html;
+                document.title = e.state.pageTitle;
+            }
+        };
+
         var isHeaderNarrow = false;
         var contentContainer;
 
@@ -40,17 +47,20 @@
         });
 
         $(document).ready(function () {
-           contentContainer = $('#content');
+            contentContainer = $('#content');
         });
 
         function loadContent(url) {
             if (url != undefined && contentContainer != undefined) {
                 contentContainer.html('');
+
                 $.ajax({
                     url: url,
                     type: "GET"
                 }).done(function (data) {
+                    document.title = "asd";
                     contentContainer.html(data);
+                    window.history.pushState({"html":data,"pageTitle":"asd"},"", url);
                 });
             }
         }
@@ -66,18 +76,16 @@
     <div class="text-top-right">Казань</div>
     <div class="text-phone">+7(945)2345435</div>
 </div>
-
-<div class="gradient">
-    <div class="header-margin"></div>
-
-    <h1 class="text-main center">Автосервис Казань</h1>
-    <div style="margin: 0 0 10px 30px" class="text-site">Наш адрес: Большая красная 35а, Высокая Гора.</div>
-</div>
+<div class="header-margin"></div>
 
 <div id="content">
 
+    <h1 class="text-main center">Автосервис Казань</h1>
 
-    <div id="map"></div>
+    <div id="map-wrapper">
+        <div class="text-site">Наш адрес: Большая красная 35а, Высокая Гора.</div>
+        <div id="map"></div>
+    </div>
 
     <div style="padding: 30px 0" class="gradient">
         <div class="text-site center">Вы наш постоянный клиент? Узнайте о накопленных баллах, и на что их можно
@@ -89,7 +97,7 @@
 </div>
 
 <div class="container center">
-    <button class="button-secondary" onclick="loadContent('/pricelist/')">Прайс-лист</button>
+    <button class="button-secondary" onclick="loadContent('pricelist/')">Прайс-лист</button>
     <button class="button-secondary">Записаться</button>
     <button class="button-secondary">Написать</button>
     <button class="button-secondary">Приложение</button>

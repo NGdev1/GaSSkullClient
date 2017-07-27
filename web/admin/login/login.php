@@ -5,7 +5,7 @@ require_once "../../../bootstrap.php";
 use Factory\Factory;
 use Utils\Utils;
 
-Utils::enableLogging();
+//Utils::enableLogging();
 
 if(isset($_GET['action'])){
     $action = $_GET['action'];
@@ -14,7 +14,7 @@ if(isset($_GET['action'])){
         session_start();
         $_SESSION['username'] = NULL;
 
-        header("Location: http://gasskull.ru/admin/login/");
+        header("Location: /admin/login/");
         exit;
     }
 }
@@ -26,12 +26,12 @@ if (isset($_POST['submit'])) {
         session_start();
         $_SESSION['username'] = $_POST['name'];
 
-        header("Location: http://gasskull.ru/admin/");
+        header("Location: /admin/");
         exit;
     }
 }
 
 //if no action
-header("Location: http://gasskull.ru/admin/login/");
+header("Location: /admin/login/");
 exit;
 

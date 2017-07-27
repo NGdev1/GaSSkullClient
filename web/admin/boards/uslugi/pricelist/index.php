@@ -19,6 +19,7 @@ $detailDao = Factory::getDetailDao();
 
 ?>
 
+<!--suppress ALL -->
 <script type="text/javascript">
     $(document).ready(function () {
         var sections = JSON.parse('{<?php echo implode(',', $sectionDao->getAll());?>}');
@@ -59,12 +60,12 @@ $detailDao = Factory::getDetailDao();
     <table id="price_list">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Раздел</th>
-            <th>Тип авто</th>
-            <th>Название детали</th>
-            <th>Название работы</th>
-            <th>Цена</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 0, 'tabledit-span', 'number')">#</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 1, 'tabledit-span', 'string')">Раздел</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 2, 'tabledit-span', 'string')">Тип авто</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 3, 'tabledit-span', 'string')">Название детали</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 4, 'tabledit-span', 'string')">Название работы</th>
+            <th onclick="sortTable($('#price_list').find('tbody'), 5, 'tabledit-span', 'number')">Цена</th>
         </tr>
         </thead>
 

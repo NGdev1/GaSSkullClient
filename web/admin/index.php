@@ -22,6 +22,7 @@ if (empty($_SESSION['username'])) {
     <script src="../res/js/buttonsDistributor.js"></script>
     <script src="../res/js/jquery.tabledit.js"></script>
     <script src="../res/js/jquery.tablefilter.js"></script>
+    <script src="../res/js/jquery.tablesort.js"></script>
 </head>
 
 <body>
@@ -52,8 +53,8 @@ if (empty($_SESSION['username'])) {
 
         </div>
 
-        <div style="height: 220px; position: relative; top: -40px; left: 30px; z-index: -1; opacity: 100">
-            <img class="center" style="width: 330px;" src="../res/images/Logo/Logo1.svg"/>
+        <div style="height: 220px; position: relative; top: 60px; left: 20px; z-index: -1; opacity: 100">
+            <img class="center" style="width: 290px;" src="../res/images/Logo/Logo1black.png"/>
         </div>
 
     </div>

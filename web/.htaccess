@@ -1,16 +1,16 @@
-RewriteEngine on
-
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule .* /errordocs/ [L]
-
-RewriteRule pricelist  / [L]
+#RewriteEngine on
+#
+#RewriteCond %{REQUEST_FILENAME} !-f
+#
+#RewriteRule .* /errordocs/ [L]
+#
+#RewriteRule pricelist  / [L]
 
 #401  Авторизация не выполнена
 #ErrorDocument 401 http://gasskull.ru/errordocs/
 ##403  Доступ запрещен
 #ErrorDocument 403 http://gasskull.ru/errordocs/
-##404  Страница не найдена
-#ErrorDocument 404 http://gasskull.ru/errordocs/
+#404  Страница не найдена
+ErrorDocument 404 http://gasskull.ru/errordocs/
 ##500  Внутренняя ошибка сервера
 #ErrorDocument 500 http://gasskull.ru/errordocs/

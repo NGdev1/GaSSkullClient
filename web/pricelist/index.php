@@ -19,52 +19,88 @@ $detailDao = Factory::getDetailDao();
 
 ?>
 
-<div class="center bold text">Раздел:</div>
-<select id="sectionSelect" style="width: 50%;" class="input_green center">
-    <option value="-1">Все</option>
-</select>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GaSSkull</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../res/css/site/style.css" rel="stylesheet" media="screen">
+    <link href="../res/css/style.css" rel="stylesheet" media="screen">
+    <link href="../res/css/table.css" rel="stylesheet" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div>Прайс лист:</div>
+    <script src="../res/js/jquery.min.js"></script>
+</head>
 
-<div id="table-container">
-    <table id="price_list">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Раздел</th>
-            <th>Тип авто</th>
-            <th>Название детали</th>
-            <th>Название работы</th>
-            <th>Цена</th>
-        </tr>
-        </thead>
+<body>
 
-        <tbody>
+<div class="header-background-big animated-element">
+    <div class="image-top-logo"></div>
+    <div class="text-top-left">Высокая гора</div>
+    <div class="text-top-right">Казань</div>
+    <div class="text-phone">+7(945)2345435</div>
+</div>
+<div class="header-margin"></div>
 
-        <?php
-        $i = 0;
-        $priceList = $priceListDao->getAllServices();
+<div id="content">
 
-        foreach ($priceList as $item) {
+    <div class="container">
 
-            $carType = $carTypeDao->getCarTypeById($item->getIdCarType())->getName();
-            $workName = $workDao->getById($item->getIdWork())->getName();
-            $sectionName = $sectionDao->getById($item->getIdSection())->getName();
-            $detailName = $detailDao->getDetailById($item->getIdDetail())->getName();
+        <div>Прайс лист:</div>
 
-            echo <<< HTML
+        <div id="table-container">
+            <table id="price_list">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Тип авто</th>
+                    <th>Название детали</th>
+                    <th>Название работы</th>
+                    <th>Цена</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <?php
+                $i = 0;
+                $priceList = $priceListDao->getAllServices();
+
+                foreach ($priceList as $item) {
+
+                    $carType = $carTypeDao->getCarTypeById($item->getIdCarType())->getName();
+                    $workName = $workDao->getById($item->getIdWork())->getName();
+                    $detailName = $detailDao->getDetailById($item->getIdDetail())->getName();
+
+                    echo <<< HTML
             <tr>
                 <td>{$item->getId()}</td>
-                <td>{$sectionName}</td>
                 <td>{$carType}</td>
                 <td>{$detailName}</td>
                 <td>{$workName}</td>
                 <td>{$item->getPrice()}</td>
             </tr>
 HTML;
-        }
-        ?>
+                }
+                ?>
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+<div class="container center">
+    <button class="button-secondary" onclick="loadContent('pricelist/', 'Прайс-лист')">Прайс-лист</button>
+    <button class="button-secondary">Записаться</button>
+    <button class="button-secondary">Написать</button>
+    <button class="button-secondary">Приложение</button>
+</div>
+
+<div class="footer">
+    <div class="text-site center">Низкие цены, высокое качество.</div>
+</div>
+
+<div class="image-bottom-logo center"></div>
+<!-- /container -->
+</body>
+</html>

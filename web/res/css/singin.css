@@ -1,14 +1,14 @@
-.form-signin-heading{ /* title */
+.form-signin-heading { /* title */
     margin: 0 auto 10px;
     text-align: center;
     font-size: 40px;
 }
 
-.text-danger{
+.text-danger {
     color: red;
 }
 
-.radio-group{
+.radio-group {
     position: relative;
     height: auto;
 

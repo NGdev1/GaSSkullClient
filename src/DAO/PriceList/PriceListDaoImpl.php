@@ -116,7 +116,7 @@ class PriceListDaoImpl implements PriceListDao
     function getAllServices()
     {
         $conn = DbWrapper::getConnection();
-        $stmt = $conn->prepare("SELECT * FROM price_list ORDER BY id_car_type;");
+        $stmt = $conn->prepare("SELECT * FROM price_list;");
         $stmt->execute();
 
         $resultSet = $stmt->fetchAll();

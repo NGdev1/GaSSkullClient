@@ -5,6 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link href="res/css/site/style.css" rel="stylesheet" media="screen">
     <link href="res/css/style.css" rel="stylesheet" media="screen">
+    <link href="res/css/table.css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="res/js/jquery.min.js"></script>
@@ -12,13 +13,6 @@
     <script src="res/js/map.js"></script>
 
     <script type="text/javascript">
-
-        window.onpopstate = function(e){
-            if(e.state){
-                document.getElementById("content").innerHTML = e.state.html;
-                document.title = e.state.pageTitle;
-            }
-        };
 
         var isHeaderNarrow = false;
         var contentContainer;
@@ -50,17 +44,17 @@
             contentContainer = $('#content');
         });
 
-        function loadContent(url) {
+        function loadContent(url, title) {
             if (url != undefined && contentContainer != undefined) {
                 contentContainer.html('');
 
                 $.ajax({
                     url: url,
-                    type: "GET"
+                    type: "POST"
                 }).done(function (data) {
-                    document.title = "asd";
+                    document.title = title;
                     contentContainer.html(data);
-                    window.history.pushState({"html":data,"pageTitle":"asd"},"", url);
+                    window.history.pushState({"html": data, "pageTitle": title}, title, url);
                 });
             }
         }
@@ -83,7 +77,7 @@
     <h1 class="text-main center">Автосервис Казань</h1>
 
     <div id="map-wrapper">
-        <div class="text-site">Наш адрес: Большая красная 35а, Высокая Гора.</div>
+        <div class="text-site"> <span class="location"></span> Наш адрес: Большая красная 35а, Высокая Гора.</div>
         <div id="map"></div>
     </div>
 
@@ -97,7 +91,8 @@
 </div>
 
 <div class="container center">
-    <button class="button-secondary" onclick="loadContent('pricelist/')">Прайс-лист</button>
+<!--    <button class="button-secondary" onclick="loadContent('pricelist/', 'Прайс-лист')">Прайс-лист</button>-->
+    <button class="button-secondary">Прайс-лист</button>
     <button class="button-secondary">Записаться</button>
     <button class="button-secondary">Написать</button>
     <button class="button-secondary">Приложение</button>
